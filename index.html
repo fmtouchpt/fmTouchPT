@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="utf-8">
+		<title>Consentimiento</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script>
+			function randNum() {
+				save = document.getElementById("store").checked;
+				if (save){
+					document.getElementById("idNumber").value = (Math.floor(Math.random() * 5000000)+5000000)
+				}else {
+					document.getElementById("idNumber").value = (Math.floor(Math.random() * 4000000)+1000000)
+				}
+		}
+		</script>
+	</head>
+	<body>
+		<h1 align="center", style="padding:25px">Consentimento informado</h1>
+			<h2 align="center", style="padding:25px">Interação entre o toque afetivo e os sintomas da fibromialgia</h2>
+				<p align="left", style="padding:25px">
+					Declaração de consentimento, considerando as recomendações da "Declaração de Helsinque" de 1964; (Tóquio 1975; Veneza 1983; Hong Kong 1989; Somerset West 1996 e Edimburgo 2000)
+					<br><br><strong>Introdução</strong><br>
+					Somos um grupo de investigadores da Universidade do Minho. O nosso projeto visa aprender mais sobre as características da dor na fibromialgia e avaliar o efeito das experiências e atitudes em relação ao toque nos sintomas desta patologia.<br>A sua participação neste estudo é voluntária e pode desistir a qualquer momento. Se deseja participar neste estudo, leia atentamente as seguintes informações antes de pressionar o link na parte inferior desta página.
+					<br><br><strong>O que este estudo implica?</strong><br>Essa avaliação levará aproximadamente 15 minutos e incluirá o preenchimento de alguns questionários e pintar num boneco as zonas do corpo onde sofreu dores.
+					<br>Será solicitado a fornecer dados demográficos básicos (por exemplo, idade e escolaridade), além de informações que nos ajudem a caracterizar aspetos do seu estilo de vida atual. Algumas dimensões, tais como a presença de sintomas típicos de fibromialgia, experiências de toque afetivo e de abuso físico ou sexual serão também avaliadas. Todas as avaliações serão realizadas online.
+					<br><br><strong>Confidencialidade e anonimato dos seus dados</strong><br>Os dados obtidos deste trabalho estarão sujeitos a um processo de anonimização, de forma a que as identidades dos participantes não sejam identificáveis durante o processamento dos dados, <strong>garantindo total anonimato. Não são recolhidos dados pessoais que permitam a identificação do participante</strong> (como número de Cartão do Cidadão, endereço IP, ou e-mail). Todos os dados obtidos serão analisados e mantidos na Escola de Psicologia da Universidade do Minho (Portugal) de forma adequada e anônima. Os dados serão utilizados apenas para fins de avaliação, que podem ser publicados em publicações científicas. No entanto, os resultados sempre serão anónimos.<br>Nos termos da lei, é garantido ao participante o direito de, mediante solicitação por escrito ao investigador principal, retirar seu consentimento do uso de seus dados para os fins acima mencionados.<br><br>Ao marcar a caixa abaixo, declaro estar ciente dos direitos de propriedade intelectual relativos à investigação intitulada "Interação entre o toque afetivo e os sintomas da fibromialgia"
+
+					<form onsubmit="randNum()" style="padding-left:25px">
+					<input type="hidden" name="idNum" id="idNumber" value="", style="padding:25px" />
+					<input type="checkbox" name="save" id="store" required />
+					<label for="store">1- Declaro que estou ciente dos direitos de propriedade intelectual</label><br />
+					<input type="checkbox" name="save" id="delete"/>
+					<label for="delete">2- Declaro que estou li as informações e que concordo em participar no estudo</label><br />
+					<br>Se pretender obter mais informações sobre a proteção dos dados apresentados, deve fazê-lo por escrito dirigido ao 'Encarregado de Proteção' da Universidade do Minho (<em>protecaodados@uminho.pt</em>; <em>https://www.uminho.pt/protecaodados</em>) ou através de um formulário de reclamações à autoridade nacional de controlo (<em>www.cnpd.pt</em>).
+					<br><br>Pesquisador responsável: Alberto González Villar<br>Contacto: <em>albertojac.gonzalez@psi.uminho.pt</em>
+
+				<p>
+				<br>Clicando no botão "Aceitar" abaixo indica que:
+				<br>- Leu e compreendeu as informações acima.
+				<br>- Concorda em participar voluntariamente.
+				<br>- Tem pelo menos 18 anos.<br><br>
+				Se não deseja participar neste estudo de investigação, clique no botão "Rejeitar".<br>
+				</p>
+
+		    <button type="submit" formaction="tests/index.html" >Aceitar</button>
+				<button type="submit" formaction="goodbye.html" style="color:red">Rejeitar</button></p>
+		  </form>
+			</p>
+		</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Estudio FM</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script>
+
+		function showContinue() {
+			var query = window.location.search.substring(1);
+			var pair = query.split("=");
+			document.getElementById("IdNum").value = pair[1];
+			document.getElementById("idNum2").value = pair[1];
+			var ff = document.getElementById("fullform");
+			const isFf = ff.checkValidity();
+			if (isFf){
+		    document.getElementById("send").style.display="none";
+		    document.getElementById("continue").style.display="inline";
+			}
+		}
+	</script>
+	</head>
+	<body>
+		<h3>Su número de identificación es:
+		<strong id="demo"></strong>.
+		 Por favor, apúntelo en un lugar seguro. Se lo pediremos en una segunda evaluación que se realizará en unos meses.
+		 <p>Si desea que le avisemos personalmente para la segunda evaluación, envíe un correo electrónico a <em>estudiotopofm@gmail.com</em> con el asunto "avisar" e incluyendo el número de identificación en el mensaje.</p></h3>
+		<form id='fullform' action="../paint/index.html" method="GET">
+
+			<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+				<label for='f1'>- Año de nacimiento:<input id='f1' class="reqAns" type="number" name="Edad" min="1920" max="2003" required /></label><br>
+				<label for='f1'>- Mes de nacimiento:<input id='f112' class="reqAns" type="number" name="Mes" min="1" max="12" required /></label><br>
+				- Sexo: <input id='f2' class="reqAns" type="radio" name="sexo" value="Mujer" style="margin-left: 10px" required> Mujer
+				<input id='f2' class="reqAns" type="radio" name="sexo" value="Hombre" style="margin-left: 10px"> Hombre
+				<input id='f2' class="reqAns" type="radio" name="sexo" value="Otro" style="margin-left: 10px"> Otro<br>
+				- Nivel de estudios: <input id='f3' class="reqAns" type="radio" name="estudios" value="Ninguno" style="margin-left: 10px" required> Ninguno
+				<input id='f3' class="reqAns" type="radio" name="estudios" value="Elementales" style="margin-left: 10px"> Elementales
+				<input id='f3' class="reqAns" type="radio" name="estudios" value="Bachillerato" style="margin-left: 10px"> Bachillerato
+				<input id='f3' class="reqAns" type="radio" name="estudios" value="FormacionProfesional" style="margin-left: 10px"> Formación Profesional
+				<input id='f3' class="reqAns" type="radio" name="estudios" value="Universitarios" style="margin-left: 10px"> Universitarios<br>
+
+				<label for='f4'>- Peso (en Kg):<input id='f4' class="reqAns" type="number" name="Peso" min="20" max="300" required /></label> <br>
+				<label for='f5'>- Estatura (en cms):<input id='f5' class="reqAns" type="number" name="Estatura" min="50" max="250" required /></label> <br>
+				- ¿Tiene diagnóstico de fibromialgia hecho por un profesional médico? <input id='f6' class="reqAns" type="radio" name="diagnostico" value="Si" style="margin-left: 10px"> Sí
+				<input class="reqAns" type="radio" name="diagnostico" value="No" style="margin-left: 10px" required /> No<br>
+				<label for='f7'>Si ha respondido "Sí" a la pregunta anterior:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿Cuántos años tenía cuando fué diagnosticada de fibromialgia?:<input type="number" name="AnosD" min="0" max="99"/></label><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿Cuántos años tenía cuando comenzó a padecer síntomas de la fibromialgia:<input type="number" name="AnosS" min="0" max="99"/></label><br><br>
+				<label for='f8'>- Número medio de minutos en los que realiza deporte/actividad física al día:<input id='f8' class="reqAns" type="number" name="Deporte" min="0" max="500" required /></label><br>
+				<label for='f9'>- Código Postal:<input id='f9' class="reqAns" type="number" name="CP" max="99999" size=5 required /></label> <br>
+
+				<label for='f10'>- Nivel de consumo de medicación:<br> <input id='f10' class="reqAns" type="radio" name="meds" value="No" style="margin-left: 10px" required> No tomo o apenas tomo medicación para el dolor, solamente en ocasiones puntuales. </label>
+				<label for='f10'><input id='f10' class="reqAns" type="radio" name="meds" value="Poco" style="margin-left: 10px"> Tomo medicación para el dolor o la fibromialgia de forma habitual, aunque creo que es una cantidad moderada.</label>
+				<label for='f10'><input id='f10' class="reqAns" type="radio" name="meds" value="Mucho" style="margin-left: 10px"> Tomo constantemente mucha medicación para paliar el dolor o los síntomas de la fibromialgia.</label><br>
+				&nbsp;&nbsp;Si lo desea, puede escribir aquí que medicación consume actualmente: <input id='f11' type="text" name="medsE" size=50><br>
+				- Considera que vive en una zona: <input id='f92' class="reqAns" type="radio" name="pobla" value="Urbana" style="margin-left: 10px">Urbana
+				<input class="reqAns" type="radio" name="pobla" value="Semi" style="margin-left: 10px">Semi-urbana
+				<input class="reqAns" type="radio" name="pobla" value="Rural" style="margin-left: 10px" required />Rural<br>
+				<label for='Fhoras'>- En la última semana, ¿cuántas horas al día (de media) ha permanecido dentro de casa?<input id='Fhoras' class="reqAns" type="number" name="Horas" min="0" max="24" required /></label> <br>
+				 - ¿Con cuántas personas está conviviendo actualmente? Sin incluírse a usted: <input id='f11' class="reqAns" type="radio" name="houseN" value="0" style="margin-left: 10px" required> 0
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="1" style="margin-left: 10px"> 1
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="2" style="margin-left: 10px"> 2
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="3" style="margin-left: 10px"> 3
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="4" style="margin-left: 10px"> 4
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="5" style="margin-left: 10px"> 5
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="6" style="margin-left: 10px"> Más de 5<br>
+				<br>- Situación laboral actual: <br><input id='f12' class="reqAns" type="radio" name="trabajo" value="0" style="margin-left: 10px" required> Empleado/a a tiempo completo<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="1" style="margin-left: 10px"> Empleado/a a tiempo parcial<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="2" style="margin-left: 10px"> Trabajador/a por cuenta propia<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="3" style="margin-left: 10px"> Desempleado/a<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="4" style="margin-left: 10px"> Jubilado/a<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="5" style="margin-left: 10px"> Incapacidad permanente<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="6" style="margin-left: 10px"> Trabajador/a doméstico o cuidador/a<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="7" style="margin-left: 10px"> Estudiante<br>
+			 <input id='f12' class="reqAns" type="radio" name="trabajo" value="8" style="margin-left: 10px"> Otro<br>
+
+			 <br>- ¿Continúa trabajando después de las restricciones impuestas por el coronavirus?: <br><input id='f13' class="reqAns" type="radio" name="trabajo2" value="0" style="margin-left: 10px" required> Si, por teletrabajo/trabajo en casa<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="1" style="margin-left: 10px"> Sí, continúo trabajando presencialmente<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="2" style="margin-left: 10px"> Sí, continúo trabajando presencialmente, pero con restricciones<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="3" style="margin-left: 10px"> Sí, recibo clases online<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="4" style="margin-left: 10px"> No, perdí el empleo por el coronavirus<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="5" style="margin-left: 10px"> No<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="6" style="margin-left: 10px"> Otro<br>
+
+			<br>- Seleccione el tipo de vivienda en la que se encuentra actualmente: <br><input id='f14' class="reqAns" type="radio" name="vivienda" value="0" style="margin-left: 10px" required> Apartamento/piso<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="1" style="margin-left: 10px"> Casa<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="2" style="margin-left: 10px"> Adosado<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="3" style="margin-left: 10px"> Bungalow<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="4" style="margin-left: 10px"> Autocaravana<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="5" style="margin-left: 10px"> Otro<br>
+			<br>- ¿Tiene jardín o zona verde exterior?:<input id='f15' class="reqAns" type="radio" name="jardin" value="0" style="margin-left: 10px" required> No
+			<input id='f15' class="reqAns" type="radio" name="jardin" value="1" style="margin-left: 10px"> Sí<br>
+			<br>- ¿Tiene balcón, terraza o patio?:<input id='f16' class="reqAns" type="radio" name="balcon" value="0" style="margin-left: 10px" required> No
+			<input id='f16' class="reqAns" type="radio" name="balcon" value="1" style="margin-left: 10px"> Sí<br>
+
+			<br>- ¿Se ha contagiado con COVID-19/coronavirus?: <br><input id='f17' class="reqAns" type="radio" name="contagio" value="0" style="margin-left: 10px" required> No, ni nadie de mi entorno cercano<br>
+			<input id='f17' class="reqAns" type="radio" name="contagio" value="1" style="margin-left: 10px"> No, pero personas de mi núcleo familiar sí se han contagiado<br>
+			<input id='f17' class="reqAns" type="radio" name="contagio" value="2" style="margin-left: 10px"> No, pero personas de mi entorno (amigos, vecinos...) sí se han contagiado<br>
+			<input id='f17' class="reqAns" type="radio" name="contagio" value="3" style="margin-left: 10px"> Sí, me he contagiado y me he curado<br>
+			<input id='f17' class="reqAns" type="radio" name="contagio" value="4" style="margin-left: 10px"> Sí, me he contagiado y aún no me he curado<br>
+			<input id='f17' class="reqAns" type="radio" name="contagio" value="5" style="margin-left: 10px"> No lo sé<br>
+
+			</fieldset>
+				<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+					<p>Señale la categoría que mejor describa sus habilidades o sentimientos<strong> durante la última semana</strong>.
+					Si usted nunca ha realizado alguna actividad de las preguntadas, déjela en blanco</p>
+					<table class="fiqTable">
+					  <tr>
+					    <th style="padding-right: 40px;">Usted pudo:</th>
+					    <th style="padding-right: 30px;">Siempre</th>
+					    <th style="padding-right: 30px;">La mayoría de las veces</th>
+							<th style="padding-right: 30px;">Ocasionalmente</th>
+							<th>Nunca</th>
+					  </tr>
+					  <tr>
+					    <td>Ir a comprar:</td>
+					    <td>0 <input id='fiq1' type="radio" name="fiq1" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq1" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq1" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq1" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Lavar la ropa usando lavadora y secadora: </td>
+					    <td>0 <input id='fiq2' type="radio" name="fiq2" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq2" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq2" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq2" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Preparar la comida: </td>
+					    <td>0 <input id='fiq3' type="radio" name="fiq3" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq3" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq3" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq3" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Lavar los platos a mano: </td>
+					    <td>0 <input id='fiq4' type="radio" name="fiq4" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq4" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq4" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq4" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Pasar la aspiradora por la alfombra: </td>
+					    <td>0 <input id='fiq5' type="radio" name="fiq5" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq5" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq5" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq5" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Hacer las camas: </td>
+					    <td>0 <input id='fiq6' type="radio" name="fiq6" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq6" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq6" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq6" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Caminar varios centenares de metros: </td>
+					    <td>0 <input id='fiq7' type="radio" name="fiq7" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq7" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq7" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq7" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Visitar a los amigos o a los parientes: </td>
+					    <td>0 <input id='fiq8' type="radio" name="fiq8" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq8" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq8" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq8" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Cuidar el jardín: </td>
+					    <td>0 <input id='fiq9' type="radio" name="fiq9" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq9" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq9" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq9" value="3"></label></td>
+					  </tr>
+						<tr>
+					    <td>Conducir en coche: </td>
+					    <td>0 <input id='fiq10' type="radio" name="fiq10" value="0"></label></td>
+					    <td>1 <input type="radio" name="fiq10" value="1"></label></td>
+							<td>2 <input type="radio" name="fiq10" value="2"></label></td>
+							<td>3 <input type="radio" name="fiq10" value="3"></label></td>
+					  </tr>
+					</table>
+
+					<div style="padding-top: 20px;" class="reqAns">
+						<div>De los 7 días de la semana pasada, ¿cuántos se sintió bien?<br>
+							<label><input id='fiq11' type="radio" name="fiq11" value="0" style="margin-left: 10px">0</label>
+							<label><input type="radio" name="fiq11" value="1" style="margin-left: 10px" required >1</label>
+							<label><input type="radio" name="fiq11" value="2" style="margin-left: 10px">2</label>
+							<label><input type="radio" name="fiq11" value="3" style="margin-left: 10px">3</label>
+							<label><input type="radio" name="fiq11" value="4" style="margin-left: 10px">4</label>
+							<label><input type="radio" name="fiq11" value="5" style="margin-left: 10px">5</label>
+							<label><input type="radio" name="fiq11" value="6" style="margin-left: 10px">6</label>
+							<label><input type="radio" name="fiq11" value="7" style="margin-left: 10px">7</label>
+						</div>
+					</div>
+					<div style="padding-top: 20px;" class="reqAns">
+						<div>¿Cuántos días de trabajo perdió la semana pasada por su fibromialgia?<br>
+							(Si no trabaja fuera de casa, o no ha podido ir a trabajar por la situación actual, no conteste a esta pregunta).<br>
+							<label><input id='fiq12' type="radio" name="fiq12" value="0" style="margin-left: 10px">0</label>
+							<label><input type="radio" name="fiq12" value="1" style="margin-left: 10px">1</label>
+							<label><input type="radio" name="fiq12" value="2" style="margin-left: 10px">2</label>
+							<label><input type="radio" name="fiq12" value="3" style="margin-left: 10px">3</label>
+							<label><input type="radio" name="fiq12" value="4" style="margin-left: 10px">4</label>
+							<label><input type="radio" name="fiq12" value="5" style="margin-left: 10px">5</label>
+							<label><input type="radio" name="fiq12" value="6" style="margin-left: 10px">6</label>
+							<label><input type="radio" name="fiq12" value="7" style="margin-left: 10px">7</label>
+						</div>
+					</div>
+			</fieldset>
+
+				<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+					<p>Marque el punto que mejor indique como se sintió usted <strong>en la última semana</strong>.
+					Puede seleccionar cualquier valor intermedio entre 0 y 10</p>
+					<li class="vas1" style="padding:10px">Cuando trabajó, ¿Cuánto afectó el dolor u
+						otros síntomas de la fibromialgia a su capacidad para trabajar?<br>(Siendo 0=No tuve problemas
+						 y 10=Tuve grandes dificultades)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq1' type="radio" name="vas1" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas1" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas1" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas1" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas1" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas1" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas1" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas1" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas1" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas1" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas1" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+				<br>
+				<li class="vas2" style="padding:10px">¿Hasta qué punto ha sentido dolor?<br>(Siendo 0=No he sentido dolor
+ 						 y 10=He sentido un dolor muy intenso)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq2' type="radio" name="vas2" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas2" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas2" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas2" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas2" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas2" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas2" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas2" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas2" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas2" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas2" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas3" style="padding:10px">¿Hasta qué punto se ha sentido cansado?<br>(Siendo 0=No me he sentido cansado
+ 						 y 10=Me he sentido muy cansado)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq3' type="radio" name="vas3" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas3" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas3" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas3" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas3" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas3" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas3" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas3" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas3" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas3" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas3" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas4" style="padding:10px">¿Cómo se ha sentido al levantarse por la mañana?<br>(Siendo 0=Me he despertado descansado
+ 						 y 10=Me he despertado muy cansado)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq4' type="radio" name="vas4" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas4" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas4" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas4" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas4" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas4" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas4" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas4" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas4" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas4" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas4" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas5" style="padding:10px">¿Hasta que punto se ha sentido agarrotado?<br>(Siendo 0=No me he sentido agarrotado
+ 						 y 10=Me he sentido muy agarrotado)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq5' type="radio" name="vas5" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas5" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas5" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas5" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas5" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas5" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas5" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas5" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas5" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas5" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas5" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+				<li class="vas6" style="padding:10px">¿Hasta que punto se ha sentido tenso, nervioso o ansioso?<br>(Siendo 0=No me he sentido nervioso
+ 						 y 10=Me he sentido muy nervioso)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq6' type="radio" name="vas6" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas6" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas6" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas6" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas6" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas6" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas6" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas6" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas6" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas6" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas6" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas7" style="padding:10px">¿Hasta que punto se ha sentido deprimido o triste?<br>(Siendo 0=No me he sentido deprimido
+						 y 10=Me he sentido muy deprimido)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq7' type="radio" name="vas7" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas7" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas7" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas7" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas7" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas7" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas7" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas7" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas7" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas7" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas7" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+			</fieldset>
+				<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+					<p>Otras preguntas:</p>
+				<li class="vas8" style="padding:10px">¿Cómo cree que ha sido la calidad de su sueño en <strong>la última semana</strong>?<br>(Siendo 0=Sueño muy reparador
+						 y 10=Sueño en absoluto reparador)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq8' type="radio" name="vas8" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas8" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas8" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas8" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas8" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas8" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas8" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas8" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas8" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas8" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas8" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+				<li class="vas9" style="padding:10px">¿Ha tenido algún problema de atención, concentración o memoria <strong>durante la última semana</strong>? <br>(Siendo 0=Ningún problema
+						 y 10=Problemas muy graves)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq9' type="radio" name="vas9" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas9" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas9" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas9" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas9" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas9" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas9" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas9" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas9" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas9" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas9" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+				<li class="vas10" style="padding:10px">¿Mantenía contacto físico afectivo (por ej. abrazar, besar, coger de la mano...) con sus seres queridos <strong>durante su infancia</strong>? <br>(Siendo 0=No mantenía ningún contacto físico afectivo
+						 y 10=Mantenía contacto físico afectivo de forma muy frecuente)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq10' type="radio" name="vas10" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas10" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas10" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas10" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas10" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas10" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas10" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas10" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas10" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas10" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas10" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+				<li class="vas113" style="padding:10px">¿Ha mantenido contacto físico afectivo (por ej. abrazar, besar, coger de la mano...) con sus seres queridos <strong>en las semanas anteriores a la crisis del coronavirus</strong>? <br>(Siendo 0=No he mantenido ningún contacto físico afectivo
+						 y 10=He mantenido contacto físico afectivo de forma muy frecuente)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq113' type="radio" name="vas113" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas113" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas113" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas113" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas113" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas113" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas113" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas113" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas113" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas113" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas113" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas11" style="padding:10px">¿Ha mantenido contacto físico afectivo (por ej. abrazar, besar, coger de la mano...) con sus seres queridos <strong>durante la última semana</strong>? <br>(Siendo 0=No he mantenido ningún contacto físico afectivo
+						 y 10=He mantenido contacto físico afectivo de forma muy frecuente)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq11' type="radio" name="vas11" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas11" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas11" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas11" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas11" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas11" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas11" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas11" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas11" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas11" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas11" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+				<li class="vas13" style="padding:10px">¿Ha sufrido algún episodio de violencia física o psicológica a lo largo de su vida?</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasAb13' type="radio" name="vas13" value="0" style="margin-left: 10px">Nunca</label>
+						<label><input type="radio" name="vas13" value="1" style="margin-left: 10px">Alguna vez</label>
+						<label><input type="radio" name="vas13" value="2" style="margin-left: 10px" required >A menudo</label>
+					</div>
+				</div>
+
+				<li class="vas14" style="padding:10px">¿Ha sufrido algún episodio de abusos sexuales a lo largo de su vida?</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasAb14' type="radio" name="vas14" value="0" style="margin-left: 10px">Nunca</label>
+						<label><input type="radio" name="vas14" value="1" style="margin-left: 10px">Alguna vez</label>
+						<label><input type="radio" name="vas14" value="2" style="margin-left: 10px" required >Varias veces</label>
+					</div>
+				</div>
+
+
+				<li class="vas15" style="padding:10px">¿Cree que su fibromialgia puede ser por causa de un traumatismo (ej. accidente de tráfico, golpe, caída...), una intervención quirúrgica o una enfermedad médica?</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasAb15' type="radio" name="vas15" value="0" style="margin-left: 10px">No</label>
+						<label><input type="radio" name="vas15" value="1" style="margin-left: 10px">No lo sé</label>
+						<label><input type="radio" name="vas15" value="2" style="margin-left: 10px" required >Sí</label>
+					</div>
+				</div>
+				&nbsp;&nbsp;Si ha respondido "Sí" a la pregunta anterior, por favor especifique cuál cree que ha sido la causa de su fibromialgia: <input id='vas15desc' type="text" name="acci" size=50>
+
+				<li class="vas21" style="padding:10px">En qué medida cree que la crisis del coronavirus afecta a su salud
+					<br>(Siendo 0=No me está afectando nada y 10=Me está afectando tremendamente)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='covid1' type="radio" name="vas21" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas21" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas21" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas21" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas21" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas21" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas21" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas21" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas21" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas21" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas21" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+
+				<li class="vas23" style="padding:10px">Qué grado de ansiedad le produce la crisis del coronavirus
+					<br>(Siendo 0=Nada de ansiedad y 10=Máxima ansiedad)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='covid2' type="radio" name="vas23" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas23" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas23" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas23" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas23" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas23" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas23" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas23" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas23" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas23" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas23" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+				<li class="vas24" style="padding:10px">A nivel psicológico ¿Considera que le está afectando el aislamiento por el coronavirus?
+					<br>(Siendo 0=No me está afectando nada y 10=Me está afectando tremendamente)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='covid3' type="radio" name="vas24" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas24" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas24" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas24" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas24" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas24" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas24" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas24" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas24" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas24" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas24" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas25" style="padding:10px">¿Cómo cree que será su vida tras la crisis del coronavirus?
+					<br>(Siendo 0=Será mucho peor, 5=No habrá cambios, 10=Será mucho mejor)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='covid4' type="radio" name="vas25" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas25" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas25" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas25" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas25" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas25" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas25" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas25" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas25" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas25" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas25" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas26" style="padding:10px">¿Considera que está realizando correctamente las medidas para evitar el contagio (distanciamiento social, confinamiento, lavado de manos...)?
+					<br>(Siendo 0=No las estoy realizando correctamente y 10=Las estoy realizando muy correctamente)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='covid5' type="radio" name="vas26" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas26" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas26" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas26" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas26" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas26" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas26" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas26" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas26" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas26" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas26" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+				<li class="vas12" style="padding:10px">¿Cúal cree que es su estado general de salud?<br>(Siendo 0=Estado de salud muy bueno
+				y 10=Estado de salud muy malo)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='vasfiq12' type="radio" name="vas12" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas12" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas12" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas12" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas12" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas12" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas12" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas12" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas12" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas12" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas12" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+				<li class="vas22" style="padding:10px">¿Piensa que su estado de salud va a evolucionar a mejor o a peor en los próximos años?
+					<br>(Siendo 0=Muy a mejor, 5=Sin cambios, 10=Muy a peor)</li>
+				<div class="reqAns">
+					<div>
+						<label><input id='salud2' type="radio" name="vas22" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="vas22" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="vas22" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="vas22" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="vas22" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="vas22" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="vas22" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="vas22" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="vas22" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="vas22" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="vas22" value="10" style="margin-left: 10px" required >10</label>
+					</div>
+				</div>
+
+
+
+			</fieldset>
+			<input id='IdNum' type="hidden" name="IDparticipant" value="" />
+			<input id='computer' type="hidden" name="systemPart" value="" />
+		  <div class="wrapper" style="text-align: center; padding:25px">
+		  <button id='send' onclick="showContinue();">
+			<!-- <button id='send' class="pageclip-form__submit"> -->
+				<span><strong>Enviar</strong></span>
+		  </button>
+			</div>
+		</form>
+
+			<script>
+				var solic = window.location.search.substring(1);
+				var par = solic.split("=");
+				par = par[1]
+				document.getElementById("demo").innerHTML = par.substring(0,7);
+				document.getElementById("computer").value = navigator.userAgent;
+			</script>
+	</body>
+</html>

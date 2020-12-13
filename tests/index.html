@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="utf-8">
+		<title>Estudio FM</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script>
+
+		function showContinue() {
+			var query = window.location.search.substring(1);
+			var pair = query.split("=");
+			document.getElementById("IdNum").value = pair[1];
+			document.getElementById("idNum2").value = pair[1];
+			var ff = document.getElementById("fullform");
+			const isFf = ff.checkValidity();
+			if (isFf){
+		    document.getElementById("send").style.display="none";
+		    document.getElementById("continue").style.display="inline";
+			}
+		}
+	</script>
+	<style>
+	table, th, td  {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	td {text-align:center}
+	/* .teaq{
+    cursor: pointer;
+    display: block;
+    text-align: center;
+	} */
+	</style>
+	</head>
+	<body>
+		<h3></h3>
+		<form id='fullform' action="../paint/index.html" method="GET">
+
+			<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+				<p><label for='anoN'>- Ano de nascimento: <input id='anoN' class="reqAns" type="number" name="Edad" min="1920" max="2003" required /></label></p>
+				<p><label for='mesN'>- Mes de nascimiento: <input id='mesN' class="reqAns" type="number" name="Mes" min="1" max="12" required /></label></p>
+				<p>- Sexo: <input id='mulher' class="reqAns" type="radio" name="sexo" value="Mujer" style="margin-left: 10px" required><label for='mulher'> Mulher</label>
+				<input id='homem' class="reqAns" type="radio" name="sexo" value="Hombre" style="margin-left: 10px"><label for='homem'> Homem</label>
+				<input id='outrSex' class="reqAns" type="radio" name="sexo" value="Otro" style="margin-left: 10px"><label for='outrSex'> Outro</label></p>
+				<p><label for='distrito'>- Distrito:</label>
+ 				<select name="distrito" id="distrito" required>
+					<option disabled selected value> -- seleccione -- </option>
+			    <option value="ave">Aveiro</option>
+			    <option value="bej">Beja</option>
+			    <option value="bra">Braga</option>
+			    <option value="bgn">Bragança</option>
+					<option value="cbr">Castelo Branco</option>
+			    <option value="coi">Coimbra</option>
+			    <option value="evo">Évora</option>
+			    <option value="far">Faro</option>
+					<option value="gua">Guarda</option>
+			    <option value="lei">Leiria</option>
+			    <option value="lis">Lisboa</option>
+			    <option value="pta">Portalegre</option>
+					<option value="pot">Porto</option>
+			    <option value="san">Santarém</option>
+					<option value="set">Setúbal</option>
+			    <option value="via">Viana do Castelo</option>
+			    <option value="vil">Vila Real</option>
+			    <option value="vis">Viseu</option>
+					<option value="eco">Açores</option>
+					<option value="mad">Madeira</option>
+				</select></p>
+
+				<p>- Considera que vive num espaço urbano:<input id='pob1' class="reqAns" type="radio" name="pobla" value="Urbana" style="margin-left: 10px"><label for="pob1">Urbano</label>
+				<input id='pob2' class="reqAns" type="radio" name="pobla" value="Semi" style="margin-left: 10px"><label for="pob2">Semi-urbano</label>
+				<input id='pob3' class="reqAns" type="radio" name="pobla" value="Rural" style="margin-left: 10px" required /><label for="pob3">Rural</label></p>
+				<p>- Nível de escolaridade e habilitações literárias:<br><input id='est1' class="reqAns" type="radio" name="estudios" value="1" style="margin-left: 10px" required><label for="est1">Ensino Primário</label><br>
+				<input id='est2' class="reqAns" type="radio" name="estudios" value="2" style="margin-left: 10px"><label for="est2">2º ciclo (5º e 6º ano)</label><br>
+				<input id='est3' class="reqAns" type="radio" name="estudios" value="3" style="margin-left: 10px"><label for="est3">3º ciclo (7º, 8º e 9º ano)</label><br>
+				<input id='est4' class="reqAns" type="radio" name="estudios" value="4" style="margin-left: 10px"><label for="est4">Ensino secundário</label><br>
+				<input id='est5' class="reqAns" type="radio" name="estudios" value="5" style="margin-left: 10px"><label for="est5">Licenciatura</label><br>
+				<input id='est6' class="reqAns" type="radio" name="estudios" value="6" style="margin-left: 10px"><label for="est6">Mestrado</label><br>
+				<input id='est7' class="reqAns" type="radio" name="estudios" value="7" style="margin-left: 10px"><label for="est7"> Doutoramento</label><br>
+				<input id='est8' class="reqAns" type="radio" name="estudios" value="8" style="margin-left: 10px"><label for="est8"> Outro</label></p>
+
+				<p>- Situação profissional:
+				<br><input id='tra1' class="reqAns" type="radio" name="trabajo" value="0" style="margin-left: 10px" required><label for="tra1"> Empegado/a a tempo inteiro</label><br>
+				<input id='tra2' class="reqAns" type="radio" name="trabajo" value="1" style="margin-left: 10px"><label for="tra2"> Empregado/a a tempo parcial</label><br>
+				<input id='tra3' class="reqAns" type="radio" name="trabajo" value="2" style="margin-left: 10px"><label for="tra3"> Estudante</label><br>
+				<input id='tra4' class="reqAns" type="radio" name="trabajo" value="3" style="margin-left: 10px"><label for="tra4"> Desempregado/a</label><br>
+				<input id='tra5' class="reqAns" type="radio" name="trabajo" value="4" style="margin-left: 10px"><label for="tra5"> Reformado/a</label><br>
+				<input id='tra6' class="reqAns" type="radio" name="trabajo" value="5" style="margin-left: 10px"><label for="tra6"> Incapacidade permanente</label><br>
+				<input id='tra7' class="reqAns" type="radio" name="trabajo" value="8" style="margin-left: 10px"><label for="tra7"> Outro</label></p>
+
+
+				<p><label for='Peso'>- Peso (em Kg):</label><input id='Peso' class="reqAns" type="number" name="Peso" min="20" max="300" required /></p>
+				<p><label for='Estat'>- Altura (em cms):</label><input id='Estat' class="reqAns" type="number" name="Estatura" min="50" max="250" required /></p>
+				<p><label for='deporte'>- Número médio de minutos de actividade física/desportiva por dia: <input id='deporte' class="reqAns" type="number" name="Deporte" min="0" max="500" required /></label></p>
+				<p>- Tem diagnóstico de fibromialgia feito por um profissional médico?
+				<input id='diagSi' class="reqAns" type="radio" name="diagnostico" value="Si" style="margin-left: 10px"><label for='diagSi'>Sim</label>
+				<input id='diagNo'class="reqAns" type="radio" name="diagnostico" value="No" style="margin-left: 10px" required /><label for='diagNo'>Não</label>
+				<label for='anosFib'>&nbsp;&nbsp;&nbsp;Se respondeu "Sim" à pergunta anterior: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Que idade tinha quando lhe foi diagnosticada a fibromialgia?</label><input id='anosFib' type="number" name="AnosD" min="0" max="99"/>
+				<label for='anosSint'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Que idade tinha quando começou a ter sintomas de fibromialgia? </label><input id='anosSint' type="number" name="AnosS" min="0" max="99"/></p>
+
+				<p>- Presença de outras condições médicas (excluindo a fibromialgia):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Doenças neurológicas:
+				<input id='neuroSi' class="reqAns" type="radio" name="diagnostico" value="Si" style="margin-left: 10px"><label for='neuroSi'>Sim</label>
+				<input id='neuroNo'class="reqAns" type="radio" name="diagnostico" value="No" style="margin-left: 10px" required /><label for='neuroNo'>Não</label>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Doenças psiquiátricas:
+				<input id='psiqSi' class="reqAns" type="radio" name="diagnostico" value="Si" style="margin-left: 10px"><label for='psiqSi'>Sim</label>
+				<input id='psiqNo'class="reqAns" type="radio" name="diagnostico" value="No" style="margin-left: 10px" required /><label for='psiqNo'>Não</label>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outras doenças:
+				<input id='OutrasDSi' class="reqAns" type="radio" name="diagnostico" value="Si" style="margin-left: 10px"><label for='OutrasDSi'>Sim</label>
+				<input id='OutrasDNo'class="reqAns" type="radio" name="diagnostico" value="No" style="margin-left: 10px" required /><label for='OutrasDNo'>Não</label></p>
+
+
+				<p>- Nível de consumo de medicação:<br> <input id='meds0' class="reqAns" type="radio" name="meds" value="0" style="margin-left: 10px" required> <label for='meds0'>Não tomo ou quase não tomo medicação para a dor, apenas em ocasiões pontuais.</label><br>
+				<input id='meds1' class="reqAns" type="radio" name="meds" value="1" style="margin-left: 10px"><label for='meds1'>Tomo regularmente medicação para a dor ou fibromialgia, embora em quantidade moderada.</label><br>
+				<input id='meds2' class="reqAns" type="radio" name="meds" value="2" style="margin-left: 10px"> <label for='meds2'>Estou sempre a tomar muitos medicamentos para aliviar a dor ou os sintomas da fibromialgia.</label><br>
+				&nbsp;&nbsp;Se desejar, pode escrever aqui que medicação está actualmente a tomar: <input style="margin-left: 20px" id='medsDescrip' type="text" name="medsE" size=50><br></p>
+				<label for='Fhoras'>- En la última semana, ¿cuántas horas al día (de media) ha permanecido dentro de casa?: <input id='Fhoras' class="reqAns" type="number" name="Horas" min="0" max="24" required /></label> <br>
+				 - ¿Con cuántas personas está conviviendo actualmente? Sin incluírse a usted: <input id='f11' class="reqAns" type="radio" name="houseN" value="0" style="margin-left: 10px" required> 0
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="1" style="margin-left: 10px"> 1
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="2" style="margin-left: 10px"> 2
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="3" style="margin-left: 10px"> 3
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="4" style="margin-left: 10px"> 4
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="5" style="margin-left: 10px"> 5
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="6" style="margin-left: 10px"> Más de 5<br>
+			 <br>- ¿Continúa trabajando después de las restricciones impuestas por el coronavirus?: <br><input id='f13' class="reqAns" type="radio" name="trabajo2" value="0" style="margin-left: 10px" required> Si, por teletrabajo/trabajo en casa<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="1" style="margin-left: 10px"> Sí, continúo trabajando presencialmente<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="2" style="margin-left: 10px"> Sí, continúo trabajando presencialmente, pero con restricciones<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="3" style="margin-left: 10px"> Sí, recibo clases online<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="4" style="margin-left: 10px"> No, perdí el empleo por el coronavirus<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="5" style="margin-left: 10px"> No<br>
+			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="6" style="margin-left: 10px"> Otro<br>
+
+			<br>- Seleccione el tipo de vivienda en la que se encuentra actualmente: <br><input id='f14' class="reqAns" type="radio" name="vivienda" value="0" style="margin-left: 10px" required> Apartamento/piso<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="1" style="margin-left: 10px"> Casa<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="2" style="margin-left: 10px"> Adosado<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="3" style="margin-left: 10px"> Bungalow<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="4" style="margin-left: 10px"> Autocaravana<br>
+			<input id='f14' class="reqAns" type="radio" name="vivienda" value="5" style="margin-left: 10px"> Otro<br>
+			<br>- ¿Tiene jardín o zona verde exterior?:<input id='f15' class="reqAns" type="radio" name="jardin" value="0" style="margin-left: 10px" required> No
+			<input id='f15' class="reqAns" type="radio" name="jardin" value="1" style="margin-left: 10px"> Sí<br>
+			<br>- ¿Tiene balcón, terraza o patio?:<input id='f16' class="reqAns" type="radio" name="balcon" value="0" style="margin-left: 10px" required> No
+			<input id='f16' class="reqAns" type="radio" name="balcon" value="1" style="margin-left: 10px"> Sí<br>
+
+			</fieldset>
+
+			<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+				<p><strong>INSTRUÇÕES: </strong>Para cada uma das seguintes nove questões, assinale o número que melhor indica em que grau a fibromialgia dificultou cada uma das seguintes tarefas na <strong>última semana</strong>. Se não desempenhou alguma das atividades neste período, indique a dificuldade com que desempenhou pela última vez essa atividade. Se não pode desempenhar uma atividade, assinale a última caixa à direita.</p>
+
+
+				<li class="vasFiq1" style="padding:10px">Escovar ou pentear o seu cabelo<br>(Sendo 0=Sem dificuldade
+						 e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq1' type="radio" name="fiq1" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq1" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq1" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq1" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq1" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq1" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq1" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq1" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq1" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq1" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq1" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq2" style="padding:10px">Caminhar continuamente durante 20 minutos<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq2' type="radio" name="fiq2" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq2" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq2" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq2" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq2" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq2" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq2" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq2" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq2" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq2" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq2" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq3" style="padding:10px">Preparar uma refeição<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq3' type="radio" name="fiq3" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq3" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq3" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq3" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq3" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq3" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq3" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq3" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq3" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq3" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq3" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq4" style="padding:10px">Aspirar, esfregar ou varrer o chão<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq4' type="radio" name="fiq4" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq4" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq4" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq4" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq4" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq4" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq4" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq4" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq4" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq4" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq4" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq5" style="padding:10px">Levantar e carregar um saco cheio de mercearias<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq5' type="radio" name="fiq5" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq5" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq5" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq5" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq5" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq5" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq5" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq5" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq5" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq5" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq5" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq6" style="padding:10px">Subir um lanço de escadas<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq6' type="radio" name="fiq6" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq6" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq6" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq6" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq6" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq6" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq6" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq6" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq6" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq6" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq6" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq7" style="padding:10px">Mudar os lençóis da cama<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq7' type="radio" name="fiq7" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq7" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq7" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq7" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq7" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq7" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq7" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq7" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq7" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq7" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq7" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq8" style="padding:10px">Estar sentado numa cadeira durante 45 minutos<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq8' type="radio" name="fiq8" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq8" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq8" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq8" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq8" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq8" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq8" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq8" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq8" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq8" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq8" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+
+				<li class="vasFiq9" style="padding:10px">Fazer compras de supermercado<br>(Sendo 0=Sem dificuldade e 10=Com muita dificuldade)</li>
+				<div>
+					<label><input id='vasFiq9' type="radio" name="fiq9" value="0" style="margin-left: 10px">0</label>
+					<label><input type="radio" name="fiq9" value="1" style="margin-left: 10px">1</label>
+					<label><input type="radio" name="fiq9" value="2" style="margin-left: 10px">2</label>
+					<label><input type="radio" name="fiq9" value="3" style="margin-left: 10px">3</label>
+					<label><input type="radio" name="fiq9" value="4" style="margin-left: 10px">4</label>
+					<label><input type="radio" name="fiq9" value="5" style="margin-left: 10px">5</label>
+					<label><input type="radio" name="fiq9" value="6" style="margin-left: 10px">6</label>
+					<label><input type="radio" name="fiq9" value="7" style="margin-left: 10px">7</label>
+					<label><input type="radio" name="fiq9" value="8" style="margin-left: 10px">8</label>
+					<label><input type="radio" name="fiq9" value="9" style="margin-left: 10px">9</label>
+					<label><input type="radio" name="fiq9" value="10" style="margin-left: 10px" required>10</label>
+				</div>
+				</fieldset>
+
+				<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+					<p><strong>INSTRUÇÕES: </strong>Para cada uma das seguintes duas questões, assinale o número que melhor indica o impacto global da sua fibromialgia, <strong>ao longo da última semana</strong>. Se não tiver fibromialgia, marque "0".</p>
+
+					<li class="vasFiq10" style="padding:10px">A fibromialgia impediu-me de cumprir os objetivos da semana<br>(Sendo 0=Nunca e 10=Sempre)</li>
+					<div>
+						<label><input id='vasFiq10' type="radio" name="fiq10" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq10" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq10" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq10" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq10" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq10" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq10" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq10" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq10" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq10" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq10" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq11" style="padding:10px">Estive completamente perturbada pelos meus sintomas de fibromialgia<br>(Sendo 0=Nunca e 10=Sempre)</li>
+					<div>
+						<label><input id='vasFiq11' type="radio" name="fiq11" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq11" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq11" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq11" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq11" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq11" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq11" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq11" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq11" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq11" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq11" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+				</fieldset>
+
+				<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+					<p><strong>INSTRUÇÕES: </strong>Para cada uma das seguintes dez questões assinale o número que melhor indica a intensidade destes sintomas comuns de fibromialgia, <strong>ao longo da última semana</strong>. Se não tiver fibromialgia, responder igualmente indicando a intensidade de cada um dos sintomas</p>
+
+					<li class="vasFiq12" style="padding:10px">Por favor assinale o seu nível de dor<br>(Sendo 0=Sem dor e 10=Dor insuportável)</li>
+					<div>
+						<label><input id='vasFiq12' type="radio" name="fiq12" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq12" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq12" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq12" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq12" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq12" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq12" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq12" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq12" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq12" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq12" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq13" style="padding:10px">Por favor assinale o seu nível de energia<br>(Sendo 0=Muita energia e 10=Sem energia)</li>
+					<div>
+						<label><input id='vasFiq13' type="radio" name="fiq13" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq13" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq13" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq13" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq13" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq13" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq13" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq13" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq13" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq13" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq13" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq14" style="padding:10px">Por favor assinale o seu nível de rigidez<br>(Sendo 0=Sem rigidez e 10=Rigidez grave)</li>
+					<div>
+						<label><input id='vasFiq14' type="radio" name="fiq14" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq14" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq14" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq14" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq14" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq14" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq14" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq14" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq14" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq14" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq14" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq15" style="padding:10px">Por favor assinale a qualidade do seu sono<br>(Sendo 0=Acorda muito descansada e 10=Acorda muito cansada)</li>
+					<div>
+						<label><input id='vasFiq15' type="radio" name="fiq15" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq15" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq15" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq15" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq15" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq15" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq15" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq15" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq15" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq15" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq15" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq16" style="padding:10px">Por favor assinale o seu nível de depressão<br>(Sendo 0=Sem depressão e 10=Muito deprimida)</li>
+					<div>
+						<label><input id='vasFiq16' type="radio" name="fiq16" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq16" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq16" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq16" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq16" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq16" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq16" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq16" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq16" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq16" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq16" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq17" style="padding:10px">Por favor assinale o seu nível de problemas de memória<br>(Sendo 0=Boa memória e 10=Memória muito fraca)</li>
+					<div>
+						<label><input id='vasFiq17' type="radio" name="fiq17" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq17" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq17" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq17" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq17" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq17" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq17" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq17" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq17" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq17" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq17" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq18" style="padding:10px">Por favor assinale o seu nível de ansiedade<br>(Sendo 0=Sem ansiedade e 10=Muita ansiedade)</li>
+					<div>
+						<label><input id='vasFiq18' type="radio" name="fiq18" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq18" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq18" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq18" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq18" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq18" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq18" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq18" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq18" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq18" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq18" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq19" style="padding:10px">Por favor assinale o seu nível de dor quando lhe tocam ou apertam<br>(Sendo 0=Sem dor e 10=Muita dor)</li>
+					<div>
+						<label><input id='vasFiq19' type="radio" name="fiq19" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq19" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq19" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq19" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq19" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq19" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq19" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq19" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq19" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq19" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq19" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq20" style="padding:10px">Por favor assinale o seu nível de problemas de equilíbrio<br>(Sendo 0=Sem desequilibrio e 10=Grave desequilibrio)</li>
+					<div>
+						<label><input id='vasFiq20' type="radio" name="fiq20" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq20" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq20" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq20" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq20" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq20" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq20" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq20" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq20" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq20" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq20" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+
+					<li class="vasFiq21" style="padding:10px">Por favor assinale o seu nível de sensibilidade a ruídos fortes, luzes brilhantes, cheiros e frio<br>(Sendo 0=Sem sensibilidade e 10=Extrema sensibilidade)</li>
+					<div>
+						<label><input id='vasFiq21' type="radio" name="fiq21" value="0" style="margin-left: 10px">0</label>
+						<label><input type="radio" name="fiq21" value="1" style="margin-left: 10px">1</label>
+						<label><input type="radio" name="fiq21" value="2" style="margin-left: 10px">2</label>
+						<label><input type="radio" name="fiq21" value="3" style="margin-left: 10px">3</label>
+						<label><input type="radio" name="fiq21" value="4" style="margin-left: 10px">4</label>
+						<label><input type="radio" name="fiq21" value="5" style="margin-left: 10px">5</label>
+						<label><input type="radio" name="fiq21" value="6" style="margin-left: 10px">6</label>
+						<label><input type="radio" name="fiq21" value="7" style="margin-left: 10px">7</label>
+						<label><input type="radio" name="fiq21" value="8" style="margin-left: 10px">8</label>
+						<label><input type="radio" name="fiq21" value="9" style="margin-left: 10px">9</label>
+						<label><input type="radio" name="fiq21" value="10" style="margin-left: 10px" required>10</label>
+					</div>
+				</fieldset>
+
+
+
+				<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+					<p><strong>INSTRUÇÕES: </strong> Por favor, selecione uma resposta ao lado de cada uma das afirmações abaixo para indicar o quanto você concorda ou discorda de cada afirmação..</p>
+					<table style ='cursor: pointer; display: block; text-align: center'>
+					  <tr>
+					    <th style="padding-right: 10px;"></th>
+					    <th style="padding-right: 5px;">Discordo muito</th>
+					    <th style="padding-right: 5px;">Discordo um pouco</th>
+							<th style="padding-right: 5px;">Não concordo nem discordo</th>
+							<th style="padding-right: 5px;">Concordo um pouco</th>
+							<th style="padding-right: 5px;">Concordo muito</th>
+					  </tr>
+					  <tr>
+					    <td>1. Eu não gosto quando as pessoas são fisicamente muito afetuosas comigo.</td>
+					    <td><label><input type="radio" name="teaq1" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq1" value="2"></label></td>
+							<td><label><input type="radio" name="teaq1" value="3"></label></td>
+							<td><label><input type="radio" name="teaq1" value="4"></label></td>
+							<td><label><input type="radio" name="teaq1" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>2. Eu gosto de usar loções corporais.</td>
+							<td><label><input type="radio" name="teaq2" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq2" value="2"></label></td>
+							<td><label><input type="radio" name="teaq2" value="3"></label></td>
+							<td><label><input type="radio" name="teaq2" value="4"></label></td>
+							<td><label><input type="radio" name="teaq2" value="5"></label></td>
+					  </tr>
+						<tr>
+					    <td>3. Eu tenho que conhecer alguém muito bem para desfrutar do seu abraço.</td>
+							<td><label><input type="radio" name="teaq3" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq3" value="2"></label></td>
+							<td><label><input type="radio" name="teaq3" value="3"></label></td>
+							<td><label><input type="radio" name="teaq3" value="4"></label></td>
+							<td><label><input type="radio" name="teaq3" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>4. Eu acho natural cumprimentar meus amigos e familiares com um beijo na bochecha.</td>
+							<td><label><input type="radio" name="teaq4" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq4" value="2"></label></td>
+							<td><label><input type="radio" name="teaq4" value="3"></label></td>
+							<td><label><input type="radio" name="teaq4" value="4"></label></td>
+							<td><label><input type="radio" name="teaq4" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>5. Houve muito afeto físico durante minha infância.</td>
+							<td><label><input type="radio" name="teaq5" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq5" value="2"></label></td>
+							<td><label><input type="radio" name="teaq5" value="3"></label></td>
+							<td><label><input type="radio" name="teaq5" value="4"></label></td>
+							<td><label><input type="radio" name="teaq5" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>6. Enquanto criança, eu abraçava frequentemente familiares.</td>
+							<td><label><input type="radio" name="teaq6" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq6" value="2"></label></td>
+							<td><label><input type="radio" name="teaq6" value="3"></label></td>
+							<td><label><input type="radio" name="teaq6" value="4"></label></td>
+							<td><label><input type="radio" name="teaq6" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>7. Eu gosto de usar essência de banho quando tomo banho de banheira.</td>
+							<td><label><input type="radio" name="teaq7" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq7" value="2"></label></td>
+							<td><label><input type="radio" name="teaq7" value="3"></label></td>
+							<td><label><input type="radio" name="teaq7" value="4"></label></td>
+							<td><label><input type="radio" name="teaq7" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>8. Eu acho muito prazeroso acariciar o cabelo de uma pessoa que eu gosto.</td>
+							<td><label><input type="radio" name="teaq8" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq8" value="2"></label></td>
+							<td><label><input type="radio" name="teaq8" value="3"></label></td>
+							<td><label><input type="radio" name="teaq8" value="4"></label></td>
+							<td><label><input type="radio" name="teaq8" value="5"></label></td>
+					  </tr>
+						<tr>
+					    <td>9. Meus pais não foram fisicamente muito carinhosos comigo durante a minha infância.</td>
+							<td><label><input type="radio" name="teaq9" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq9" value="2"></label></td>
+							<td><label><input type="radio" name="teaq9" value="3"></label></td>
+							<td><label><input type="radio" name="teaq9" value="4"></label></td>
+							<td><label><input type="radio" name="teaq9" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>10. Eu gosto de adormecer nos braços de alguém que tenho proximidade.</td>
+							<td><label><input type="radio" name="teaq10" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq10" value="2"></label></td>
+							<td><label><input type="radio" name="teaq10" value="3"></label></td>
+							<td><label><input type="radio" name="teaq10" value="4"></label></td>
+							<td><label><input type="radio" name="teaq10" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>11. Eu frequentemente me aconchego no sofá com alguém.</td>
+							<td><label><input type="radio" name="teaq11" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq11" value="2"></label></td>
+							<td><label><input type="radio" name="teaq11" value="3"></label></td>
+							<td><label><input type="radio" name="teaq11" value="4"></label></td>
+							<td><label><input type="radio" name="teaq11" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>12. Eu gosto da intimidade física dos preliminares sexuais.</td>
+							<td><label><input type="radio" name="teaq12" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq12" value="2"></label></td>
+							<td><label><input type="radio" name="teaq12" value="3"></label></td>
+							<td><label><input type="radio" name="teaq12" value="4"></label></td>
+							<td><label><input type="radio" name="teaq12" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>13. Eu gosto de dar o braço aos meus amigos e familiares enquanto andamos juntos.</td>
+							<td><label><input type="radio" name="teaq13" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq13" value="2"></label></td>
+							<td><label><input type="radio" name="teaq13" value="3"></label></td>
+							<td><label><input type="radio" name="teaq13" value="4"></label></td>
+							<td><label><input type="radio" name="teaq13" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>14. Eu costumo abraçar minha família e amigos quando estou me despedindo.</td>
+							<td><label><input type="radio" name="teaq14" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq14" value="2"></label></td>
+							<td><label><input type="radio" name="teaq14" value="3"></label></td>
+							<td><label><input type="radio" name="teaq14" value="4"></label></td>
+							<td><label><input type="radio" name="teaq14" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>15. Enquanto criança, me sentia muito mais feliz ao receber um abraço dos meus pais quando eu estava chateado(a).</td>
+							<td><label><input type="radio" name="teaq15" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq15" value="2"></label></td>
+							<td><label><input type="radio" name="teaq15" value="3"></label></td>
+							<td><label><input type="radio" name="teaq15" value="4"></label></td>
+							<td><label><input type="radio" name="teaq15" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>16. É agradável quando amigos e familiares me cumprimentam com um beijo.</td>
+							<td><label><input type="radio" name="teaq16" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq16" value="2"></label></td>
+							<td><label><input type="radio" name="teaq16" value="3"></label></td>
+							<td><label><input type="radio" name="teaq16" value="4"></label></td>
+							<td><label><input type="radio" name="teaq16" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>17. Com frequência dou as mãos a alguém que conheço intimamente.</td>
+							<td><label><input type="radio" name="teaq17" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq17" value="2"></label></td>
+							<td><label><input type="radio" name="teaq17" value="3"></label></td>
+							<td><label><input type="radio" name="teaq17" value="4"></label></td>
+							<td><label><input type="radio" name="teaq17" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>18. Quando estou chateado(a), geralmente há alguém que pode me consolar.</td>
+							<td><label><input type="radio" name="teaq18" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq18" value="2"></label></td>
+							<td><label><input type="radio" name="teaq18" value="3"></label></td>
+							<td><label><input type="radio" name="teaq18" value="4"></label></td>
+							<td><label><input type="radio" name="teaq18" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>19. Beijar é uma ótima maneira de mostrar atração física.</td>
+							<td><label><input type="radio" name="teaq19" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq19" value="2"></label></td>
+							<td><label><input type="radio" name="teaq19" value="3"></label></td>
+							<td><label><input type="radio" name="teaq19" value="4"></label></td>
+							<td><label><input type="radio" name="teaq19" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>20. É uma sensação muito boa quando alguém que eu gosto faz carinho no meu cabelo.</td>
+							<td><label><input type="radio" name="teaq20" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq20" value="2"></label></td>
+							<td><label><input type="radio" name="teaq20" value="3"></label></td>
+							<td><label><input type="radio" name="teaq20" value="4"></label></td>
+							<td><label><input type="radio" name="teaq20" value="5"></label></td>
+					  </tr>
+					</table>
+
+					<table style ='cursor: pointer; display: block; text-align: center'>
+					  <tr>
+					    <th style="padding-right: 10px;"></th>
+					    <th style="padding-right: 5px;">Discordo muito</th>
+					    <th style="padding-right: 5px;">Discordo um pouco</th>
+							<th style="padding-right: 5px;">Não concordo nem discordo</th>
+							<th style="padding-right: 5px;">Concordo um pouco</th>
+							<th style="padding-right: 5px;">Concordo muito</th>
+					  </tr>
+					  <tr>
+					    <td>21. Eu frequentemente abraço as pessoas que sou próximo(a).</td>
+					    <td><label><input type="radio" name="teaq21" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq21" value="2"></label></td>
+							<td><label><input type="radio" name="teaq21" value="3"></label></td>
+							<td><label><input type="radio" name="teaq21" value="4"></label></td>
+							<td><label><input type="radio" name="teaq21" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>22. Enquanto criança, meus pais me aconchegavam na cama todas as noites e me davam um abraço e um beijo de boa noite</td>
+							<td><label><input type="radio" name="teaq22" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq22" value="2"></label></td>
+							<td><label><input type="radio" name="teaq22" value="3"></label></td>
+							<td><label><input type="radio" name="teaq22" value="4"></label></td>
+							<td><label><input type="radio" name="teaq22" value="5"></label></td>
+					  </tr>
+						<tr>
+					    <td>23. Minha vida tem falta de afeto físico.</td>
+							<td><label><input type="radio" name="teaq23" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq23" value="2"></label></td>
+							<td><label><input type="radio" name="teaq23" value="3"></label></td>
+							<td><label><input type="radio" name="teaq23" value="4"></label></td>
+							<td><label><input type="radio" name="teaq23" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>24. Eu gosto de ter minha pele acariciada.</td>
+							<td><label><input type="radio" name="teaq24" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq24" value="2"></label></td>
+							<td><label><input type="radio" name="teaq24" value="3"></label></td>
+							<td><label><input type="radio" name="teaq24" value="4"></label></td>
+							<td><label><input type="radio" name="teaq24" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>25. Eu costumo tomar banho de chuveiro ou banheira com outra pessoa.</td>
+							<td><label><input type="radio" name="teaq25" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq25" value="2"></label></td>
+							<td><label><input type="radio" name="teaq25" value="3"></label></td>
+							<td><label><input type="radio" name="teaq25" value="4"></label></td>
+							<td><label><input type="radio" name="teaq25" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>26. Eu gosto de fazer sexo.</td>
+							<td><label><input type="radio" name="teaq26" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq26" value="2"></label></td>
+							<td><label><input type="radio" name="teaq26" value="3"></label></td>
+							<td><label><input type="radio" name="teaq26" value="4"></label></td>
+							<td><label><input type="radio" name="teaq26" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>27. Faço sexo com frequência.</td>
+							<td><label><input type="radio" name="teaq27" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq27" value="2"></label></td>
+							<td><label><input type="radio" name="teaq27" value="3"></label></td>
+							<td><label><input type="radio" name="teaq27" value="4"></label></td>
+							<td><label><input type="radio" name="teaq27" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>28. Eu não gosto de familiaridade física.</td>
+							<td><label><input type="radio" name="teaq28" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq28" value="2"></label></td>
+							<td><label><input type="radio" name="teaq28" value="3"></label></td>
+							<td><label><input type="radio" name="teaq28" value="4"></label></td>
+							<td><label><input type="radio" name="teaq28" value="5"></label></td>
+					  </tr>
+						<tr>
+					    <td>29. Eu sempre tenho alguém que me conforta fisicamente quando estou chateado(a).</td>
+							<td><label><input type="radio" name="teaq29" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq29" value="2"></label></td>
+							<td><label><input type="radio" name="teaq29" value="3"></label></td>
+							<td><label><input type="radio" name="teaq29" value="4"></label></td>
+							<td><label><input type="radio" name="teaq29" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>30. Eu sempre cumprimento meus amigos e familiares dando-lhes um abraço.</td>
+							<td><label><input type="radio" name="teaq30" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq30" value="2"></label></td>
+							<td><label><input type="radio" name="teaq30" value="3"></label></td>
+							<td><label><input type="radio" name="teaq30" value="4"></label></td>
+							<td><label><input type="radio" name="teaq30" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>31. Eu gosto de ser aconchegado(a) por alguém que eu gosto.</td>
+							<td><label><input type="radio" name="teaq31" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq31" value="2"></label></td>
+							<td><label><input type="radio" name="teaq31" value="3"></label></td>
+							<td><label><input type="radio" name="teaq31" value="4"></label></td>
+							<td><label><input type="radio" name="teaq31" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>32. Minha mãe me dava banho frequentemente enquanto criança.</td>
+							<td><label><input type="radio" name="teaq32" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq32" value="2"></label></td>
+							<td><label><input type="radio" name="teaq32" value="3"></label></td>
+							<td><label><input type="radio" name="teaq32" value="4"></label></td>
+							<td><label><input type="radio" name="teaq32" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>33. Enquanto criança, meus pais sempre me confortavam quando eu estava chateado(a).</td>
+							<td><label><input type="radio" name="teaq33" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq33" value="2"></label></td>
+							<td><label><input type="radio" name="teaq33" value="3"></label></td>
+							<td><label><input type="radio" name="teaq33" value="4"></label></td>
+							<td><label><input type="radio" name="teaq33" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>34. Eu gosto da sensação da minha pele encostada na de outra pessoa, se eu a conhecer intimamente.</td>
+							<td><label><input type="radio" name="teaq34" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq34" value="2"></label></td>
+							<td><label><input type="radio" name="teaq34" value="3"></label></td>
+							<td><label><input type="radio" name="teaq34" value="4"></label></td>
+							<td><label><input type="radio" name="teaq34" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>35. Enquanto criança, meus pais costumavam segurar minha mão quando caminhávamos juntos.</td>
+							<td><label><input type="radio" name="teaq35" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq35" value="2"></label></td>
+							<td><label><input type="radio" name="teaq35" value="3"></label></td>
+							<td><label><input type="radio" name="teaq35" value="4"></label></td>
+							<td><label><input type="radio" name="teaq35" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>36. Na maioria dos dias eu recebo um abraço ou um beijo.</td>
+							<td><label><input type="radio" name="teaq36" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq36" value="2"></label></td>
+							<td><label><input type="radio" name="teaq36" value="3"></label></td>
+							<td><label><input type="radio" name="teaq36" value="4"></label></td>
+							<td><label><input type="radio" name="teaq36" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>37. Se alguém que eu não conheço muito bem coloca a mão amigavelmente no meu braço, me sinto desconfortável.</td>
+							<td><label><input type="radio" name="teaq37" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq37" value="2"></label></td>
+							<td><label><input type="radio" name="teaq37" value="3"></label></td>
+							<td><label><input type="radio" name="teaq37" value="4"></label></td>
+							<td><label><input type="radio" name="teaq37" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>38. Toco meus amigos e familiares muitas vezes quando estou com eles.</td>
+							<td><label><input type="radio" name="teaq38" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq38" value="2"></label></td>
+							<td><label><input type="radio" name="teaq38" value="3"></label></td>
+							<td><label><input type="radio" name="teaq38" value="4"></label></td>
+							<td><label><input type="radio" name="teaq38" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>39. Me sinto desconfortável se alguém que eu não conheço muito bem me toca de uma forma amigável.</td>
+							<td><label><input type="radio" name="teaq39" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq39" value="2"></label></td>
+							<td><label><input type="radio" name="teaq39" value="3"></label></td>
+							<td><label><input type="radio" name="teaq39" value="4"></label></td>
+							<td><label><input type="radio" name="teaq39" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>40. Eu gosto de ficar de mãos dadas com alguém que eu gosto.</td>
+							<td><label><input type="radio" name="teaq40" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq40" value="2"></label></td>
+							<td><label><input type="radio" name="teaq40" value="3"></label></td>
+							<td><label><input type="radio" name="teaq40" value="4"></label></td>
+							<td><label><input type="radio" name="teaq40" value="5"></label></td>
+					  </tr>
+					</table>
+
+					<table style ='cursor: pointer; display: block; text-align: center'>
+					  <tr>
+					    <th style="padding-right: 10px;"></th>
+					    <th style="padding-right: 5px;">Discordo muito</th>
+					    <th style="padding-right: 5px;">Discordo um pouco</th>
+							<th style="padding-right: 5px;">Não concordo nem discordo</th>
+							<th style="padding-right: 5px;">Concordo um pouco</th>
+							<th style="padding-right: 5px;">Concordo muito</th>
+					  </tr>
+					  <tr>
+					    <td>41. Eu dou beijos apaixonados com frequência.</td>
+					    <td><label><input type="radio" name="teaq41" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq41" value="2"></label></td>
+							<td><label><input type="radio" name="teaq41" value="3"></label></td>
+							<td><label><input type="radio" name="teaq41" value="4"></label></td>
+							<td><label><input type="radio" name="teaq41" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>42. Enquanto criança, minha mãe frequentemente escovava meu cabelo.</td>
+							<td><label><input type="radio" name="teaq42" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq42" value="2"></label></td>
+							<td><label><input type="radio" name="teaq42" value="3"></label></td>
+							<td><label><input type="radio" name="teaq42" value="4"></label></td>
+							<td><label><input type="radio" name="teaq42" value="5"></label></td>
+					  </tr>
+						<tr>
+					    <td>43. Eu gosto de esfoliar minha pele.</td>
+							<td><label><input type="radio" name="teaq43" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq43" value="2"></label></td>
+							<td><label><input type="radio" name="teaq43" value="3"></label></td>
+							<td><label><input type="radio" name="teaq43" value="4"></label></td>
+							<td><label><input type="radio" name="teaq43" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>44. Beijar é uma parte prazerosa de expressar sentimentos românticos.</td>
+							<td><label><input type="radio" name="teaq44" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq44" value="2"></label></td>
+							<td><label><input type="radio" name="teaq44" value="3"></label></td>
+							<td><label><input type="radio" name="teaq44" value="4"></label></td>
+							<td><label><input type="radio" name="teaq44" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>45. A minha pele é acariciada com frequência.</td>
+							<td><label><input type="radio" name="teaq45" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq45" value="2"></label></td>
+							<td><label><input type="radio" name="teaq45" value="3"></label></td>
+							<td><label><input type="radio" name="teaq45" value="4"></label></td>
+							<td><label><input type="radio" name="teaq45" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>46. Dou, muitas vezes, as mãos a alguém que gosto.</td>
+							<td><label><input type="radio" name="teaq46" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq46" value="2"></label></td>
+							<td><label><input type="radio" name="teaq46" value="3"></label></td>
+							<td><label><input type="radio" name="teaq46" value="4"></label></td>
+							<td><label><input type="radio" name="teaq46" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>47. Eu gosto de acariciar a pele de alguém que conheço intimamente.</td>
+							<td><label><input type="radio" name="teaq47" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq47" value="2"></label></td>
+							<td><label><input type="radio" name="teaq47" value="3"></label></td>
+							<td><label><input type="radio" name="teaq47" value="4"></label></td>
+							<td><label><input type="radio" name="teaq47" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>48. Tem bastante gente que eu abraço.</td>
+							<td><label><input type="radio" name="teaq48" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq48" value="2"></label></td>
+							<td><label><input type="radio" name="teaq48" value="3"></label></td>
+							<td><label><input type="radio" name="teaq48" value="4"></label></td>
+							<td><label><input type="radio" name="teaq48" value="5"></label></td>
+					  </tr>
+						<tr>
+					    <td>49. Eu frequentemente adormeço abraçado(a) a alguém que sou próximo(a).</td>
+							<td><label><input type="radio" name="teaq49" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq49" value="2"></label></td>
+							<td><label><input type="radio" name="teaq49" value="3"></label></td>
+							<td><label><input type="radio" name="teaq49" value="4"></label></td>
+							<td><label><input type="radio" name="teaq49" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>50. Adoro me aconchegar no sofá com alguém.</td>
+							<td><label><input type="radio" name="teaq50" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq50" value="2"></label></td>
+							<td><label><input type="radio" name="teaq50" value="3"></label></td>
+							<td><label><input type="radio" name="teaq50" value="4"></label></td>
+							<td><label><input type="radio" name="teaq50" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>51. Com frequência coloco meu braço nos ombros de um(a) amigo(a) próximo(a) enquanto caminhamos juntos.</td>
+							<td><label><input type="radio" name="teaq51" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq51" value="2"></label></td>
+							<td><label><input type="radio" name="teaq51" value="3"></label></td>
+							<td><label><input type="radio" name="teaq51" value="4"></label></td>
+							<td><label><input type="radio" name="teaq51" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>52. Eu gosto de tomar banho com muita espuma.</td>
+							<td><label><input type="radio" name="teaq52" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq52" value="2"></label></td>
+							<td><label><input type="radio" name="teaq52" value="3"></label></td>
+							<td><label><input type="radio" name="teaq52" value="4"></label></td>
+							<td><label><input type="radio" name="teaq52" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>53. Eu não recebo muitos abraços hoje em dia.</td>
+							<td><label><input type="radio" name="teaq53" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq53" value="2"></label></td>
+							<td><label><input type="radio" name="teaq53" value="3"></label></td>
+							<td><label><input type="radio" name="teaq53" value="4"></label></td>
+							<td><label><input type="radio" name="teaq53" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>54. Com frequência recebo massagens nos ombros.</td>
+							<td><label><input type="radio" name="teaq54" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq54" value="2"></label></td>
+							<td><label><input type="radio" name="teaq54" value="3"></label></td>
+							<td><label><input type="radio" name="teaq54" value="4"></label></td>
+							<td><label><input type="radio" name="teaq54" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>55. Eu gosto de fazer máscaras faciais na minha pele.</td>
+							<td><label><input type="radio" name="teaq55" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq55" value="2"></label></td>
+							<td><label><input type="radio" name="teaq55" value="3"></label></td>
+							<td><label><input type="radio" name="teaq55" value="4"></label></td>
+							<td><label><input type="radio" name="teaq55" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>56. Eu gosto quando meus amigos e familiares me cumprimentam com um abraço.</td>
+							<td><label><input type="radio" name="teaq56" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq56" value="2"></label></td>
+							<td><label><input type="radio" name="teaq56" value="3"></label></td>
+							<td><label><input type="radio" name="teaq56" value="4"></label></td>
+							<td><label><input type="radio" name="teaq56" value="5"></label></td>
+					  </tr>
+						<tr>
+							<td>57. Eu costumo dar o braço aos meus amigos e familiares enquanto andamos juntos.</td>
+							<td><label><input type="radio" name="teaq57" value="1" required></label></td>
+					    <td><label><input type="radio" name="teaq57" value="2"></label></td>
+							<td><label><input type="radio" name="teaq57" value="3"></label></td>
+							<td><label><input type="radio" name="teaq57" value="4"></label></td>
+							<td><label><input type="radio" name="teaq57" value="5"></label></td>
+					  </tr>
+
+					</table>
+				</fieldset>
+
+
+					<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+						<p><strong>INSTRUÇÕES: </strong> The following items focus on how you have been feelingphysicallyduring thepast[period of time]. Please respond by circling the appropriate number.</p>
+						<table style ='cursor: pointer; display: block; text-align: center'>
+							<tr>
+								<th style="padding-right: 10px;">Over the past month...</th>
+								<th style="padding-right: 5px;">Not at all</th>
+								<th style="padding-right: 5px;">Rarely</th>
+								<th style="padding-right: 5px;">Once in a while</th>
+								<th style="padding-right: 5px;">Some of the time</th>
+								<th style="padding-right: 5px;">Fairly often</th>
+								<th style="padding-right: 5px;">Often</th>
+								<th>All of the time</th>
+							</tr>
+							<tr>
+								<td>1. How often have you had difficulty getting to sleep at night?</td>
+								<td><label for="phq1_1">1<input id='phq1_1' type="radio" name="phq1" value="1" required></label></td>
+								<td><label for="phq1_2">2<input id='phq1_2'  type="radio" name="phq1" value="2"></label></td>
+								<td><label for="phq1_3">3<input id='phq1_3'type="radio" name="phq1" value="3"></label></td>
+								<td><label for="phq1_4">4<input id='phq1_4' type="radio" name="phq1" value="4"></label></td>
+								<td><label for="phq1_5">5<input id='phq1_5' type="radio" name="phq1" value="5"></label></td>
+								<td><label for="phq1_6">6<input id='phq1_6' type="radio" name="phq1" value="6"></label></td>
+								<td><label for="phq1_7">7<input id='phq1_7'type="radio" name="phq1" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>2. How often have you woken up during the night?</td>
+								<td><label for="phq2_1">1<input id='phq2_1' type="radio" name="phq2" value="1" required></label></td>
+								<td><label for="phq2_2">2<input id='phq2_2'  type="radio" name="phq2" value="2"></label></td>
+								<td><label for="phq2_3">3<input id='phq2_3'type="radio" name="phq2" value="3"></label></td>
+								<td><label for="phq2_4">4<input id='phq2_4' type="radio" name="phq2" value="4"></label></td>
+								<td><label for="phq2_5">5<input id='phq2_5' type="radio" name="phq2" value="5"></label></td>
+								<td><label for="phq2_6">6<input id='phq2_6' type="radio" name="phq2" value="6"></label></td>
+								<td><label for="phq2_7">7<input id='phq2_7'type="radio" name="phq2" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>3. How often have you had nightmares or disturbing dreams?</td>
+								<td><label for="phq3_1">1<input id='phq3_1' type="radio" name="phq3" value="1" required></label></td>
+								<td><label for="phq3_2">2<input id='phq3_2'  type="radio" name="phq3" value="2"></label></td>
+								<td><label for="phq3_3">3<input id='phq3_3'type="radio" name="phq3" value="3"></label></td>
+								<td><label for="phq3_4">4<input id='phq3_4' type="radio" name="phq3" value="4"></label></td>
+								<td><label for="phq3_5">5<input id='phq3_5' type="radio" name="phq3" value="5"></label></td>
+								<td><label for="phq3_6">6<input id='phq3_6' type="radio" name="phq3" value="6"></label></td>
+								<td><label for="phq3_7">7<input id='phq3_7'type="radio" name="phq3" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>4. How often has your sleep been peaceful and undisturbed?</td>
+								<td><label for="phq4_1">1<input id='phq4_1' type="radio" name="phq4" value="1" required></label></td>
+								<td><label for="phq4_2">2<input id='phq4_2'  type="radio" name="phq4" value="2"></label></td>
+								<td><label for="phq4_3">3<input id='phq4_3'type="radio" name="phq4" value="3"></label></td>
+								<td><label for="phq4_4">4<input id='phq4_4' type="radio" name="phq4" value="4"></label></td>
+								<td><label for="phq4_5">5<input id='phq4_5' type="radio" name="phq4" value="5"></label></td>
+								<td><label for="phq4_6">6<input id='phq4_6' type="radio" name="phq4" value="6"></label></td>
+								<td><label for="phq4_7">7<input id='phq4_7'type="radio" name="phq4" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>5. How often have you experienced headaches?</td>
+								<td><label for="phq5_1">1<input id='phq5_1' type="radio" name="phq5" value="1" required></label></td>
+								<td><label for="phq5_2">2<input id='phq5_2'  type="radio" name="phq5" value="2"></label></td>
+								<td><label for="phq5_3">3<input id='phq5_3'type="radio" name="phq5" value="3"></label></td>
+								<td><label for="phq5_4">4<input id='phq5_4' type="radio" name="phq5" value="4"></label></td>
+								<td><label for="phq5_5">5<input id='phq5_5' type="radio" name="phq5" value="5"></label></td>
+								<td><label for="phq5_6">6<input id='phq5_6' type="radio" name="phq5" value="6"></label></td>
+								<td><label for="phq5_7">7<input id='phq5_7'type="radio" name="phq5" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>6. How often did you get aheadache when there was a lot of pressure on you to get things done?</td>
+								<td><label for="phq6_1">1<input id='phq6_1' type="radio" name="phq6" value="1" required></label></td>
+								<td><label for="phq6_2">2<input id='phq6_2'  type="radio" name="phq6" value="2"></label></td>
+								<td><label for="phq6_3">3<input id='phq6_3'type="radio" name="phq6" value="3"></label></td>
+								<td><label for="phq6_4">4<input id='phq6_4' type="radio" name="phq6" value="4"></label></td>
+								<td><label for="phq6_5">5<input id='phq6_5' type="radio" name="phq6" value="5"></label></td>
+								<td><label for="phq6_6">6<input id='phq6_6' type="radio" name="phq6" value="6"></label></td>
+								<td><label for="phq6_7">7<input id='phq6_7'type="radio" name="phq6" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>7. How often did you get a headache when you were frustrated because things were not going the way they should have or when you were annoyed at someone?</td>
+								<td><label for="phq7_1">1<input id='phq7_1' type="radio" name="phq7" value="1" required></label></td>
+								<td><label for="phq7_2">2<input id='phq7_2'  type="radio" name="phq7" value="2"></label></td>
+								<td><label for="phq7_3">3<input id='phq7_3'type="radio" name="phq7" value="3"></label></td>
+								<td><label for="phq7_4">4<input id='phq7_4' type="radio" name="phq7" value="4"></label></td>
+								<td><label for="phq7_5">5<input id='phq7_5' type="radio" name="phq7" value="5"></label></td>
+								<td><label for="phq7_6">6<input id='phq7_6' type="radio" name="phq7" value="6"></label></td>
+								<td><label for="phq7_7">7<input id='phq7_7'type="radio" name="phq7" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>8. How often have you suffered from an upset stomach (indigestion)?</td>
+								<td><label for="phq8_1">1<input id='phq8_1' type="radio" name="phq8" value="1" required></label></td>
+								<td><label for="phq8_2">2<input id='phq8_2'  type="radio" name="phq8" value="2"></label></td>
+								<td><label for="phq8_3">3<input id='phq8_3'type="radio" name="phq8" value="3"></label></td>
+								<td><label for="phq8_4">4<input id='phq8_4' type="radio" name="phq8" value="4"></label></td>
+								<td><label for="phq8_5">5<input id='phq8_5' type="radio" name="phq8" value="5"></label></td>
+								<td><label for="phq8_6">6<input id='phq8_6' type="radio" name="phq8" value="6"></label></td>
+								<td><label for="phq8_7">7<input id='phq8_7'type="radio" name="phq8" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>9.  How often did you have towatch that you ate carefullyto avoid stomach upsets?</td>
+								<td><label for="phq9_1">1<input id='phq9_1' type="radio" name="phq9" value="1" required></label></td>
+								<td><label for="phq9_2">2<input id='phq9_2'  type="radio" name="phq9" value="2"></label></td>
+								<td><label for="phq9_3">3<input id='phq9_3'type="radio" name="phq9" value="3"></label></td>
+								<td><label for="phq9_4">4<input id='phq9_4' type="radio" name="phq9" value="4"></label></td>
+								<td><label for="phq9_5">5<input id='phq9_5' type="radio" name="phq9" value="5"></label></td>
+								<td><label for="phq9_6">6<input id='phq9_6' type="radio" name="phq9" value="6"></label></td>
+								<td><label for="phq9_7">7<input id='phq9_7'type="radio" name="phq9" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>10. How often did you feel nauseated (“sick to your stomach”)?</td>
+								<td><label for="phq10_1">1<input id='phq10_1' type="radio" name="phq10" value="1" required></label></td>
+								<td><label for="phq10_2">2<input id='phq10_2'  type="radio" name="phq10" value="2"></label></td>
+								<td><label for="phq10_3">3<input id='phq10_3'type="radio" name="phq10" value="3"></label></td>
+								<td><label for="phq10_4">4<input id='phq10_4' type="radio" name="phq10" value="4"></label></td>
+								<td><label for="phq10_5">5<input id='phq10_5' type="radio" name="phq10" value="5"></label></td>
+								<td><label for="phq10_6">6<input id='phq10_6' type="radio" name="phq10" value="6"></label></td>
+								<td><label for="phq10_7">7<input id='phq10_7'type="radio" name="phq10" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>11. How often were you constipated or did you suffer from diarrhea?</td>
+								<td><label for="phq11_1">1<input id='phq11_1' type="radio" name="phq11" value="1" required></label></td>
+								<td><label for="phq11_2">2<input id='phq11_2'  type="radio" name="phq11" value="2"></label></td>
+								<td><label for="phq11_3">3<input id='phq11_3'type="radio" name="phq11" value="3"></label></td>
+								<td><label for="phq11_4">4<input id='phq11_4' type="radio" name="phq11" value="4"></label></td>
+								<td><label for="phq11_5">5<input id='phq11_5' type="radio" name="phq11" value="5"></label></td>
+								<td><label for="phq11_6">6<input id='phq11_6' type="radio" name="phq11" value="6"></label></td>
+								<td><label for="phq11_7">7<input id='phq11_7'type="radio" name="phq11" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>12. How many times have you had minor colds (that made you feel uncomfortable but didn’t keep you sick in bed or make you miss work)?</td>
+								<td><label for="phq12_1">0 vezes<input id='phq12_1' type="radio" name="phq12" value="1" required></label></td>
+								<td><label for="phq12_2">1-2 vezes<input id='phq12_2'  type="radio" name="phq12" value="2"></label></td>
+								<td><label for="phq12_3">3 vezes<input id='phq12_3'type="radio" name="phq12" value="3"></label></td>
+								<td><label for="phq12_4">4 vezes<input id='phq12_4' type="radio" name="phq12" value="4"></label></td>
+								<td><label for="phq12_5">5 vezes<input id='phq12_5' type="radio" name="phq12" value="5"></label></td>
+								<td><label for="phq12_6">6 vezes<input id='phq12_6' type="radio" name="phq12" value="6"></label></td>
+								<td><label for="phq12_7">7+ vezes<input id='phq12_7'type="radio" name="phq12" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>13. How many times have you had respiratory infections more severe than minor colds that “laid you low”(such as bronchitis, sinusitis,etc.)?</td>
+								<td><label for="phq13_1">0 vezes<input id='phq13_1' type="radio" name="phq13" value="1" required></label></td>
+								<td><label for="phq13_2">1-2 vezes<input id='phq13_2'  type="radio" name="phq13" value="2"></label></td>
+								<td><label for="phq13_3">3 vezes<input id='phq13_3'type="radio" name="phq13" value="3"></label></td>
+								<td><label for="phq13_4">4 vezes<input id='phq13_4' type="radio" name="phq13" value="4"></label></td>
+								<td><label for="phq13_5">5 vezes<input id='phq13_5' type="radio" name="phq13" value="5"></label></td>
+								<td><label for="phq13_6">6 vezes<input id='phq13_6' type="radio" name="phq13" value="6"></label></td>
+								<td><label for="phq13_7">7+ vezes<input id='phq13_7'type="radio" name="phq13" value="7"></label></td>
+							</tr>
+							<tr>
+								<td>14. When you had a bad cold or flu, how long did it typically last?</td>
+								<td><label for="phq14_1">1 dia<input id='phq14_1' type="radio" name="phq14" value="1" required></label></td>
+								<td><label for="phq14_2">2 dias<input id='phq14_2'  type="radio" name="phq14" value="2"></label></td>
+								<td><label for="phq14_3">3 dias<input id='phq14_3'type="radio" name="phq14" value="3"></label></td>
+								<td><label for="phq14_4">4 dias<input id='phq14_4' type="radio" name="phq14" value="4"></label></td>
+								<td><label for="phq14_5">5 dias<input id='phq14_5' type="radio" name="phq14" value="5"></label></td>
+								<td><label for="phq14_6">6 dias<input id='phq14_6' type="radio" name="phq14" value="6"></label></td>
+								<td><label for="phq14_7">7+ dias<input id='phq14_7'type="radio" name="phq14" value="7"></label></td>
+							</tr>
+						</table>
+					</fieldset>
+
+
+				<fieldset style="padding:25px; margin: 2em;border-width: 2px; border-color: black; border-style:solid;">
+					<p>We now know that many people have unwanted “sexual” or violent experiences as children or adults. Some of these are with playmates or friends and some with relatives or acquaintances. These experiences may be so upsetting that they may not be discussed with anyone. Sometimes they are forgotten for long periods of time, and sometimes they are frequently brought to mind.<br>We would like you to help us understand these experiences that people may have. Please try to remember whether any of the following occurred to you. Remember also that <strong>this information is confidential and no personal data that can identify you is stored</strong></p>
+
+
+
+					<table style ='cursor: pointer; display: block; text-align: center'>
+						<tr>
+							<th style="padding-right: 20px;">Circle for both as child and as adult.</th>
+							<th colspan="2" style="padding-right: 5px;">As a child(13 and younger)</th>
+							<th colspan="2" style="padding-right: 5px;">As an adult (14 and over)</th>
+						</tr>
+						<tr>
+							<td>1. Has anyone ever exposed the sex organs of their body to you when you did not want it?</td>
+							<td><label for="spaq1_1">Sim<input id='spaq1_1' type="radio" name="spaq1y" value="0" required></label></td>
+							<td><label for="spaq1_2">Não<input id='spaq1_2'  type="radio" name="spaq1y" value="1"></label></td>
+							<td><label for="spaq1_3">Sim<input id='spaq1_3'type="radio" name="spaq1o" value="0" required></label></td>
+							<td><label for="spaq1_4">Não<input id='spaq1_4' type="radio" name="spaq1o" value="1"></label></td>
+						</tr>
+						<tr>
+							<td>2. Has anyone ever threatened to have sex with you when you did not want it?</td>
+							<td><label for="spaq2_1">Sim<input id='spaq2_1' type="radio" name="spaq2y" value="0" required></label></td>
+							<td><label for="spaq2_2">Não<input id='spaq2_2'  type="radio" name="spaq2y" value="1"></label></td>
+							<td><label for="spaq2_3">Sim<input id='spaq2_3'type="radio" name="spaq2o" value="0" required></label></td>
+							<td><label for="spaq2_4">Não<input id='spaq2_4' type="radio" name="spaq2o" value="1"></label></td>
+						</tr>
+						<tr>
+							<td>3. Has anyone ever touched the sex organs of your body when you did not want this?</td>
+							<td><label for="spaq3_1">Sim<input id='spaq3_1' type="radio" name="spaq3y" value="0" required></label></td>
+							<td><label for="spaq3_2">Não<input id='spaq3_2'  type="radio" name="spaq3y" value="1"></label></td>
+							<td><label for="spaq3_3">Sim<input id='spaq3_3'type="radio" name="spaq3o" value="0" required></label></td>
+							<td><label for="spaq3_4">Não<input id='spaq3_4' type="radio" name="spaq3o" value="1"></label></td>
+						</tr>
+						<tr>
+							<td>4. Has anyone ever made you touch the sex organs of their body when you did not want this?</td>
+							<td><label for="spaq4_1">Sim<input id='spaq4_1' type="radio" name="spaq4y" value="0" required></label></td>
+							<td><label for="spaq4_2">Não<input id='spaq4_2'  type="radio" name="spaq4y" value="1"></label></td>
+							<td><label for="spaq4_3">Sim<input id='spaq4_3'type="radio" name="spaq4o" value="0" required></label></td>
+							<td><label for="spaq4_4">Não<input id='spaq4_4' type="radio" name="spaq4o" value="1"></label></td>
+						</tr>
+						<tr>
+							<td>5. Has anyone ever forced you to have sex when you did not want this‘?</td>
+							<td><label for="spaq5_1">Sim<input id='spaq5_1' type="radio" name="spaq5y" value="0" required></label></td>
+							<td><label for="spaq5_2">Não<input id='spaq5_2'  type="radio" name="spaq5y" value="1"></label></td>
+							<td><label for="spaq5_3">Sim<input id='spaq5_3'type="radio" name="spaq5o" value="0" required></label></td>
+							<td><label for="spaq5_4">Não<input id='spaq5_4' type="radio" name="spaq5o" value="1"></label></td>
+						</tr>
+						<tr>
+							<td>6. Have you had any other unwanted sexual experiences not mentioned above’?</td>
+							<td><label for="spaq6_1">Sim<input id='spaq6_1' type="radio" name="spaq6y" value="0" required></label></td>
+							<td><label for="spaq6_2">Não<input id='spaq6_2'  type="radio" name="spaq6y" value="1"></label></td>
+							<td><label for="spaq6_3">Sim<input id='spaq6_3'type="radio" name="spaq6o" value="0" required></label></td>
+							<td><label for="spaq6_4">Não<input id='spaq6_4' type="radio" name="spaq6o" value="1"></label></td>
+						</tr>
+					</table>
+					<p style="margin-left: 30px">If you responded yes to the last question, please specify:<input style="margin-left: 30px" id='spaq6b' type="text" name="spaq6b" size=50><br></p>
+
+
+					<table style ='cursor: pointer; display: block; text-align: center'>
+						<tr>
+							<th style="text-align:left; padding-left: 5px;">7. When you wen: a child (13 or younger), did an older person
+do the following:</th>
+							<th style="padding-right: 5px;"></th>
+							<th style="padding-right: 5px;"></th>
+							<th style="padding-right: 5px;"></th>
+							<th style="padding-right: 5px;"></th>
+						</tr>
+						<tr>
+							<td style="text-align:left; padding-left: 30px;">a. Hit, kick, or beat you?</td>
+							<td><label for="spaq7a_1">0.Never<input id='spaq7a_1' type="radio" name="spaq7a" value="0" required></label></td>
+							<td><label for="spaq7a_2">1.Seldom<input id='spaq7a_2'  type="radio" name="spaq7a" value="1"></label></td>
+							<td><label for="spaq7a_3">2.Ocassionally<input id='spaq7a_3'type="radio" name="spaq7a" value="2"></label></td>
+							<td><label for="spaq7a_4">3.Often<input id='spaq7a_4' type="radio" name="spaq7a" value="3"></label></td>
+						</tr>
+						<tr>
+							<td style="text-align:left; padding-left: 30px;">b. Seriously threaten your life?</td>
+							<td><label for="spaq7b_1">0.Never<input id='spaq7b_1' type="radio" name="spaq7b" value="0" required></label></td>
+							<td><label for="spaq7b_2">1.Seldom<input id='spaq7b_2'  type="radio" name="spaq7b" value="1"></label></td>
+							<td><label for="spaq7b_3">2.Ocassionally<input id='spaq7b_3'type="radio" name="spaq7b" value="2"></label></td>
+							<td><label for="spaq7b_4">3.Often<input id='spaq7b_4' type="radio" name="spaq7b" value="3"></label></td>
+						</tr>
+						<tr>
+							<th style="text-align:left; padding-left: 5px;">8. Now that you are an adult (14 or older), has any other adult done the following:</th>
+							<th style="padding-right: 5px;"></th>
+							<th style="padding-right: 5px;"></th>
+							<th style="padding-right: 5px;"></th>
+							<th style="padding-right: 5px;"></th>
+						</tr>
+						<tr>
+							<td style="text-align:left; padding-left: 30px;">a. Hit, kick, or beat you?</td>
+							<td><label for="spaq8a_1">0.Never<input id='spaq8a_1' type="radio" name="spaq8a" value="0" required></label></td>
+							<td><label for="spaq8a_2">1.Seldom<input id='spaq8a_2'  type="radio" name="spaq8a" value="1"></label></td>
+							<td><label for="spaq8a_3">2.Ocassionally<input id='spaq8a_3'type="radio" name="spaq8a" value="2"></label></td>
+							<td><label for="spaq8a_4">3.Often<input id='spaq8a_4' type="radio" name="spaq8a" value="3"></label></td>
+						</tr>
+						<tr>
+							<td style="text-align:left; padding-left: 30px;">b. Seriously threaten your life?</td>
+							<td><label for="spaq8b_1">0.Never<input id='spaq8b_1' type="radio" name="spaq8b" value="0" required></label></td>
+							<td><label for="spaq8b_2">1.Seldom<input id='spaq8b_2'  type="radio" name="spaq8b" value="1"></label></td>
+							<td><label for="spaq8b_3">2.Ocassionally<input id='spaq8b_3'type="radio" name="spaq8b" value="2"></label></td>
+							<td><label for="spaq8b_4">3.Often<input id='spaq8b_4' type="radio" name="spaq8b" value="3"></label></td>
+						</tr>
+					</table>
+				</fieldset>
+
+
+			<input id='IdNum' type="hidden" name="IDparticipant" value="" />
+			<input id='computer' type="hidden" name="systemPart" value="" />
+		  <div class="wrapper" style="text-align: center; padding:25px">
+		  <button id='send' onclick="showContinue();">
+			<!-- <button id='send' class="pageclip-form__submit"> -->
+				<span><strong>Enviar</strong></span>
+		  </button>
+			</div>
+		</form>
+
+			<script>
+				var solic = window.location.search.substring(1);
+				var par = solic.split("=");
+				par = par[1]
+				document.getElementById("demo").innerHTML = par.substring(0,7);
+				document.getElementById("computer").value = navigator.userAgent;
+			</script>
+	</body>
+</html>

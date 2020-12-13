@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Pintar</title>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- <script>
+		var OSName="Unknown OS";
+		if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+		if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+		if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+		console.log(OSName);
+		</script> -->
+	</head>
+    <body onload="init()">
+		<canvas class= "canv" id="can0" width="444" height="621"></canvas>
+    <canvas class= "canv" id="can" width="444" height="621"
+				<p>Lo sentimos. Su navegador no permite realizar esta parte del estudio.
+					Por favor, utilice alguno de los siguientes navegadores para poder continuar</p>
+					<p>Navegadores: <a
+						href="https://www.google.com/chrome/">Google Chrome</a>, <a
+						href="https://www.mozilla.org">Firefox</a>, <a
+						href="https://www.apple.com/safari/">Safari</a>.</p>
+		></canvas>
+		<div id="instrucciones">
+			<p> Pinte con el ratón las áreas del cuerpo en las que ha sentido dolor <strong>durante la última semana</strong>.
+				Cuanto más tiempo mantenga pulsado, más intenso será el color rojo, lo que significa que el dolor ha sido
+				más intenso. <br>No se preocupe si se pasa del borde de las siluetas.<br>
+				Puede modificar el ancho del pincel con la barra de arriba. <br>Pulse "Borrar" si desea borrar algunha parte
+				en concreto. Luego vuelva a pulsar "Pintar" para continuar coloreando.<br>
+				<strong>Una vez haya terminado, pulse el botón "Enviar".</strong></p>
+		</div>
+		<div id="linepanel">
+			Ancho de pincel
+			<form>
+				<input type="range" id="myRange" name="amountRange" value="20" min="5" max="35" oninput="this.form.amountInput.value=this.value" onclick="lineWidthRange()">
+			</form>
+			<input type="button" value="Pintar" id="red" onclick="color(this)">
+			<input type="button" value="Borrar" id="white" onclick="color(this)">
+
+			<form name="finalForm" id="submitForm" method="POST" class="pageclip-form" onclick="save();">
+				<input id="idNum" name="id" type="hidden" value="">
+				<input id="inp_img" name="img" type="hidden" value="">
+				<input id="bt_upload" type="button" value="Enviar">
+			</form>
+		</div>
+			<script src="paint.js"></script>
+
+    </body>
+    </html>
