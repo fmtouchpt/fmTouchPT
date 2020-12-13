@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt">
 	<head>
 		<meta charset="utf-8">
 		<title>Pintar</title>
@@ -17,28 +17,26 @@
     <body onload="init()">
 		<canvas class= "canv" id="can0" width="444" height="621"></canvas>
     <canvas class= "canv" id="can" width="444" height="621"
-				<p>Lo sentimos. Su navegador no permite realizar esta parte del estudio.
-					Por favor, utilice alguno de los siguientes navegadores para poder continuar</p>
-					<p>Navegadores: <a
+				<p>Pedimos desculpa. O seu navegador não permite esta parte do estudo.
+					Por favor, utilize um dos seguintes browsers para continuar:</p>
+					<p> <a
 						href="https://www.google.com/chrome/">Google Chrome</a>, <a
 						href="https://www.mozilla.org">Firefox</a>, <a
 						href="https://www.apple.com/safari/">Safari</a>.</p>
 		></canvas>
 		<div id="instrucciones">
-			<p> Pinte con el ratón las áreas del cuerpo en las que ha sentido dolor <strong>durante la última semana</strong>.
-				Cuanto más tiempo mantenga pulsado, más intenso será el color rojo, lo que significa que el dolor ha sido
-				más intenso. <br>No se preocupe si se pasa del borde de las siluetas.<br>
-				Puede modificar el ancho del pincel con la barra de arriba. <br>Pulse "Borrar" si desea borrar algunha parte
-				en concreto. Luego vuelva a pulsar "Pintar" para continuar coloreando.<br>
-				<strong>Una vez haya terminado, pulse el botón "Enviar".</strong></p>
+			<p> Pinte com o rato as áreas do corpo onde sentiu dor <strong>durante a última semana.</strong>.
+				Quanto mais tempo o mantiver pressionado, mais intensa será a cor vermelha, o que significa que a dor tem sido mais intenso. <br>Não se preocupe se ultrapassar a borda das silhuetas.<br>
+				Pode alterar a largura do pincel com a barra acima. <br>Prima "Apagar" se quiser apagar uma determinada parte. Depois carregar novamente em "Pintar" para continuar a colorir.<br>
+				<strong>Uma vez terminado, prima o botão "Enviar".</strong></p>
 		</div>
 		<div id="linepanel">
-			Ancho de pincel
+			Largura do pincel
 			<form>
 				<input type="range" id="myRange" name="amountRange" value="20" min="5" max="35" oninput="this.form.amountInput.value=this.value" onclick="lineWidthRange()">
 			</form>
 			<input type="button" value="Pintar" id="red" onclick="color(this)">
-			<input type="button" value="Borrar" id="white" onclick="color(this)">
+			<input type="button" value="Apagar" id="white" onclick="color(this)">
 
 			<form name="finalForm" id="submitForm" method="POST" class="pageclip-form" onclick="save();">
 				<input id="idNum" name="id" type="hidden" value="">

@@ -115,14 +115,14 @@ function findxy(res, e) {
 }
 
 function erase() {
-		var m = confirm("Seguro que desea borrar todo?");
+		var m = confirm("Tem a certeza de que quer apagar tudo?");
 		if (m) {
 				ctx.clearRect(0, 0, w, h);
 		}
 }
 
 function save() {
-		var m2 = confirm("Esta será la imagen final que se enviará. Desea proceder?");
+		var m2 = confirm("Esta será a imagem final que será enviada. Deseja proceder?");
 		if (m2) {
 				var dataURL = canvas.toDataURL();
 				var query = window.location.search.substring(1);
