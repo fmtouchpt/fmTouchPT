@@ -6,13 +6,9 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<script>
 			function randNum() {
-				save = document.getElementById("store").checked;
-				if (save){
-					document.getElementById("idNumber").value = (Math.floor(Math.random() * 5000000)+5000000)
-				}else {
-					document.getElementById("idNumber").value = (Math.floor(Math.random() * 4000000)+1000000)
-				}
-		}
+				document.getElementById("idNumber").value = (Math.floor(Math.random() * 4000000)+1000000)
+			}
+
 		</script>
 	</head>
 	<body>
@@ -34,8 +30,8 @@
 					<input type="hidden" name="idNum" id="idNumber" value="", style="padding:25px" />
 					<!-- <input type="checkbox" name="save" id="store" required />
 					<label for="store">1- Declaro que estou ciente dos direitos de propriedade intelectual</label><br />
-					<input type="checkbox" name="save" id="delete"/>
-					<label for="delete">2- Declaro que li as informações e que concordo em participar no estudo</label><br /> -->
+					<input type="checkbox" name="save" id="delete"/> -->
+					<!-- <label for="delete">2- Declaro que li as informações e que concordo em participar no estudo</label><br /> -->
 					<br>Se pretender obter mais informações sobre a proteção dos dados apresentados, deve fazê-lo por escrito dirigido ao 'Encarregado de Proteção' da Universidade do Minho (<em>protecaodados@uminho.pt</em>; <em>https://www.uminho.pt/protecaodados</em>) ou através de um formulário de reclamações à autoridade nacional de controlo (<em>www.cnpd.pt</em>).
 					<br><br>Pesquisador responsável: Alberto González Villar<br>Contacto: <em>albertojac.gonzalez@psi.uminho.pt</em>
 

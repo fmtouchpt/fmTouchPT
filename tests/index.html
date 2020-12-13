@@ -94,8 +94,8 @@
 				<p><label for='deporte'>- Número médio de minutos de actividade física/desportiva por dia: <input id='deporte' class="reqAns" type="number" name="Deporte" min="0" max="500" required /></label></p>
 				<p>- Tem diagnóstico de fibromialgia feito por um profissional médico?
 				<input id='diagSi' class="reqAns" type="radio" name="diagnostico" value="Si" style="margin-left: 10px"><label for='diagSi'>Sim</label>
-				<input id='diagNo'class="reqAns" type="radio" name="diagnostico" value="No" style="margin-left: 10px" required /><label for='diagNo'>Não</label>
-				<label for='anosFib'>&nbsp;&nbsp;&nbsp;Se respondeu "Sim" à pergunta anterior: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Que idade tinha quando lhe foi diagnosticada a fibromialgia?</label><input id='anosFib' type="number" name="AnosD" min="0" max="99"/>
+				<input id='diagNo'class="reqAns" type="radio" name="diagnostico" value="No" style="margin-left: 10px" required /><label for='diagNo'>Não</label><br>
+				&nbsp;&nbsp;&nbsp;Se respondeu "Sim" à pergunta anterior: <br><label for='anosFib'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Que idade tinha quando lhe foi diagnosticada a fibromialgia?</label><input id='anosFib' type="number" name="AnosD" min="0" max="99"/><br>
 				<label for='anosSint'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Que idade tinha quando começou a ter sintomas de fibromialgia? </label><input id='anosSint' type="number" name="AnosS" min="0" max="99"/></p>
 
 				<p>- Presença de outras condições médicas (excluindo a fibromialgia):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Doenças neurológicas:
@@ -112,33 +112,16 @@
 				<p>- Nível de consumo de medicação:<br> <input id='meds0' class="reqAns" type="radio" name="meds" value="0" style="margin-left: 10px" required> <label for='meds0'>Não tomo ou quase não tomo medicação para a dor, apenas em ocasiões pontuais.</label><br>
 				<input id='meds1' class="reqAns" type="radio" name="meds" value="1" style="margin-left: 10px"><label for='meds1'>Tomo regularmente medicação para a dor ou fibromialgia, embora em quantidade moderada.</label><br>
 				<input id='meds2' class="reqAns" type="radio" name="meds" value="2" style="margin-left: 10px"> <label for='meds2'>Estou sempre a tomar muitos medicamentos para aliviar a dor ou os sintomas da fibromialgia.</label><br>
-				&nbsp;&nbsp;Se desejar, pode escrever aqui que medicação está actualmente a tomar: <input style="margin-left: 20px" id='medsDescrip' type="text" name="medsE" size=50><br></p>
-				<label for='Fhoras'>- En la última semana, ¿cuántas horas al día (de media) ha permanecido dentro de casa?: <input id='Fhoras' class="reqAns" type="number" name="Horas" min="0" max="24" required /></label> <br>
-				 - ¿Con cuántas personas está conviviendo actualmente? Sin incluírse a usted: <input id='f11' class="reqAns" type="radio" name="houseN" value="0" style="margin-left: 10px" required> 0
+				&nbsp;&nbsp;Se desejar, pode escrever aqui que medicação está a tomar actualmente: <input style="margin-left: 20px" id='medsDescrip' type="text" name="medsE" size=50><br></p>
+				<p><label for='Fhoras'>- Na última semana, quantas horas por dia (em média) passou dentro de casa?:<input id='Fhoras' class="reqAns" type="number" name="Horas" min="0" max="24" required /></label> <br></p>
+				<p>- Com quantas pessoas vive actualmente? Não o incluindo a si: <input id='f11' class="reqAns" type="radio" name="houseN" value="0" style="margin-left: 10px" required> 0
 				<input id='f11' class="reqAns" type="radio" name="houseN" value="1" style="margin-left: 10px"> 1
 				<input id='f11' class="reqAns" type="radio" name="houseN" value="2" style="margin-left: 10px"> 2
 				<input id='f11' class="reqAns" type="radio" name="houseN" value="3" style="margin-left: 10px"> 3
 				<input id='f11' class="reqAns" type="radio" name="houseN" value="4" style="margin-left: 10px"> 4
 				<input id='f11' class="reqAns" type="radio" name="houseN" value="5" style="margin-left: 10px"> 5
-				<input id='f11' class="reqAns" type="radio" name="houseN" value="6" style="margin-left: 10px"> Más de 5<br>
-			 <br>- ¿Continúa trabajando después de las restricciones impuestas por el coronavirus?: <br><input id='f13' class="reqAns" type="radio" name="trabajo2" value="0" style="margin-left: 10px" required> Si, por teletrabajo/trabajo en casa<br>
-			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="1" style="margin-left: 10px"> Sí, continúo trabajando presencialmente<br>
-			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="2" style="margin-left: 10px"> Sí, continúo trabajando presencialmente, pero con restricciones<br>
-			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="3" style="margin-left: 10px"> Sí, recibo clases online<br>
-			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="4" style="margin-left: 10px"> No, perdí el empleo por el coronavirus<br>
-			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="5" style="margin-left: 10px"> No<br>
-			<input id='f13' class="reqAns" type="radio" name="trabajo2" value="6" style="margin-left: 10px"> Otro<br>
+				<input id='f11' class="reqAns" type="radio" name="houseN" value="6" style="margin-left: 10px"> Máis de 5</p>
 
-			<br>- Seleccione el tipo de vivienda en la que se encuentra actualmente: <br><input id='f14' class="reqAns" type="radio" name="vivienda" value="0" style="margin-left: 10px" required> Apartamento/piso<br>
-			<input id='f14' class="reqAns" type="radio" name="vivienda" value="1" style="margin-left: 10px"> Casa<br>
-			<input id='f14' class="reqAns" type="radio" name="vivienda" value="2" style="margin-left: 10px"> Adosado<br>
-			<input id='f14' class="reqAns" type="radio" name="vivienda" value="3" style="margin-left: 10px"> Bungalow<br>
-			<input id='f14' class="reqAns" type="radio" name="vivienda" value="4" style="margin-left: 10px"> Autocaravana<br>
-			<input id='f14' class="reqAns" type="radio" name="vivienda" value="5" style="margin-left: 10px"> Otro<br>
-			<br>- ¿Tiene jardín o zona verde exterior?:<input id='f15' class="reqAns" type="radio" name="jardin" value="0" style="margin-left: 10px" required> No
-			<input id='f15' class="reqAns" type="radio" name="jardin" value="1" style="margin-left: 10px"> Sí<br>
-			<br>- ¿Tiene balcón, terraza o patio?:<input id='f16' class="reqAns" type="radio" name="balcon" value="0" style="margin-left: 10px" required> No
-			<input id='f16' class="reqAns" type="radio" name="balcon" value="1" style="margin-left: 10px"> Sí<br>
 
 			</fieldset>
 
